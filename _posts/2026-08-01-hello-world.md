@@ -24,4 +24,4 @@ tags: [博客, 个人网站]
 后续我会逐步发布系列文章。
 
 欢迎访问。
-[清华大学]([链接地址](https://www.tsinghua.edu.cn/))
+[清华大学](https://www.tsinghua.edu.cn/)
