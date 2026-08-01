@@ -1,0 +1,13 @@
+title: 古月的个人博客
+description: 记录科研、阅读、生活与思考
+author: 古月
+
+theme: minima
+
+lang: zh-CN
+timezone: Asia/Shanghai
+
+permalink: /:year/:month/:day/:title/
+
+header_pages:
+  - about.md
