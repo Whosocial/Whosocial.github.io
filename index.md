@@ -1,79 +1,95 @@
+---
 layout: home
 title: 首页
 ---
 
-# 古月依旧照今人 | Whosocial
+<div class="profile-card">
 
-## Researcher · Microbiology · Life Notes
+<img src="/assets/images/20260808170010.jpg">
+
+<h1>
+古月依旧照今人 | Whosocial
+</h1>
+
+
+<p>
+Ph.D. Student · Microbiology · Tsinghua University
+</p>
+
+
+</div>
+
+
+<span class="tag">
+🦠 Microbiology
+</span>
+
+<span class="tag">
+💊 Antibiotic Response
+</span>
+
+<span class="tag">
+🧬 Metabolism
+</span>
+
+<span class="tag">
+🔬 Systems Biology
+</span>
+
+
+
+# Welcome
 
 
 你好，我是古月。
 
-目前在清华大学基础医学院攻读博士学位，主要关注：
 
-- 细菌对抗生素压力的响应机制
-- 微生物代谢适应与重编程
-- 细菌群体行为与生理异质性
+目前在清华大学基础医学院攻读博士学位。
 
 
----
+我的研究关注：
 
-## 🔬 Research
+> 细菌如何在环境压力下调整自身状态并实现适应。
 
-我的研究兴趣围绕一个核心问题：
-
-> 在不断变化的环境压力下，细菌如何调整自身状态并实现生存。
-
-
-主要方向：
-
-- Antibiotic stress response
-- Bacterial metabolism
-- Microbial physiology
-- Systems biology
 
 
 ---
 
-## ✍️ Writing
+# Research
 
-这个博客用于记录：
 
-- 📚 论文阅读与科研思考
-- 🧬 微生物学相关知识
-- 💻 科研工具与数据分析技巧
-- 🌱 生活、阅读与个人成长
+主要研究方向：
+
+- 抗生素压力响应
+- 细菌代谢重编程
+- 微生物生理学
+- 群体异质性
+
 
 
 ---
 
-## 🌏 About Me
+# Writing
+
+
+这个博客记录：
+
+
+- 📚 论文阅读
+- 🧬 科研思考
+- 💻 工具学习
+- 🌱 阅读与生活
+
+
+
+---
+
+# About
+
 
 来自四川绵阳。
 
-目前：
 
-**Ph.D. Student**
+希望在科学探索和日常生活之间，
+保持长期记录与思考。
 
-School of Basic Medical Sciences
-
-Tsinghua University
-
-
-我相信：
-
-> 科研不仅是寻找答案，也是不断重新认识世界的过程。
-
-
----
-
-## 📮 Contact
-
-GitHub:
-
-https://github.com/whosocial
-
-
-Email:
-
-your-email@example.com
