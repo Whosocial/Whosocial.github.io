@@ -1,14 +1,12 @@
 title: 古月依旧照今人 | Whosocial
 
-description: 
-  Research notes on microbiology, bacterial adaptation and life exploration.
+description: >
+  Research notes on microbiology,
+  bacterial adaptation and life exploration.
 
 author:
   name: 古月
   avatar: /assets/images/20260808170010.jpg
-  bio: 
-    Ph.D. Student at Tsinghua University.
-    Studying bacterial adaptation, metabolism and antibiotic responses.
 
 theme: minima
 
@@ -21,3 +19,7 @@ header_pages:
   - about.md
   - research.md
   - publications.md
+
+minima:
+  social_links:
+    github: whosocial
