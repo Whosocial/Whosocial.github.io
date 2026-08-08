@@ -4,7 +4,7 @@ author:
   name: 古月
   avatar: /assets/images/20260808170010.jpg
   
-theme: jekyll-theme-minimal
+theme: minima
 
 lang: zh-CN
 timezone: Asia/Shanghai
