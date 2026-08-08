@@ -1,0 +1,136 @@
+---
+---
+
+@import "minima";
+
+
+/* =====================
+   全局字体
+===================== */
+
+body {
+  font-family:
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Microsoft YaHei",
+  sans-serif;
+
+  line-height: 1.8;
+}
+
+
+/* =====================
+   页面宽度
+===================== */
+
+.wrapper {
+  max-width: 1000px;
+}
+
+
+/* =====================
+   首页头像卡片
+===================== */
+
+.profile-card {
+
+  text-align:center;
+
+  margin:40px auto;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  background:#f7f9fc;
+
+}
+
+
+.profile-card img {
+
+  width:150px;
+
+  height:150px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  box-shadow:
+  0 8px 25px rgba(0,0,0,0.15);
+
+}
+
+
+/* =====================
+   标签
+===================== */
+
+.tag {
+
+display:inline-block;
+
+padding:6px 14px;
+
+margin:5px;
+
+border-radius:20px;
+
+background:#e8f0ff;
+
+color:#2563eb;
+
+font-size:14px;
+
+}
+
+
+/* =====================
+   暗色模式
+===================== */
+
+
+@media (prefers-color-scheme: dark){
+
+body{
+
+background:#121212;
+
+color:#ddd;
+
+}
+
+
+.site-header,
+.site-footer{
+
+background:#121212;
+
+}
+
+
+.profile-card{
+
+background:#1e1e1e;
+
+}
+
+
+.tag{
+
+background:#263238;
+
+color:#90caf9;
+
+}
+
+
+a{
+
+color:#90caf9;
+
+}
+
+}
