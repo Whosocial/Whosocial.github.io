@@ -5,7 +5,7 @@ date: 2026-08-01 15:00:00 +0800
 categories: [随笔]
 tags: [博客, 个人网站]
 ---
-![大肠杆菌代谢示意图](/assets/images/lotus_leaf.jpg)
+![大肠杆菌代谢示意图](/assets/images/Gphoto.png)
 这是我的第一篇博客文章。
 
 经过简单配置，我终于拥有了自己的个人博客。
