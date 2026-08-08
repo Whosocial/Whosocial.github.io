@@ -1,9 +1,15 @@
-title: 古月的个人博客
-description: 记录科研、阅读、生活与思考
+title: 古月依旧照今人 | Whosocial
+
+description: 
+  Research notes on microbiology, bacterial adaptation and life exploration.
+
 author:
   name: 古月
   avatar: /assets/images/20260808170010.jpg
-  
+  bio: 
+    Ph.D. Student at Tsinghua University.
+    Studying bacterial adaptation, metabolism and antibiotic responses.
+
 theme: minima
 
 lang: zh-CN
@@ -13,3 +19,5 @@ permalink: /:year/:month/:day/:title/
 
 header_pages:
   - about.md
+  - research.md
+  - publications.md
