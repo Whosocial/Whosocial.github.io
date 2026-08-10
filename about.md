@@ -20,7 +20,7 @@ permalink: /about/
   </div>
 
   <p style="font-size: 1.05rem;">
-    科研上，我专注于<strong>细菌学与微生物技术</strong>，致力于解析细菌群落（特别是生物被膜）在环境压力下的生理响应与代谢异质性。对我而言，科研不仅是在显微镜下寻找微观世界的答案，更是将这些发现转化为解决抗生素耐药性等宏大命题的线索。
+    科研上，我专注于<strong>细菌学与微生物技术</strong>，致力于解析细菌群体（特别是生物被膜）在环境压力下的生理响应与代谢异质性。对我而言，科研不仅是在显微镜下寻找微观世界的答案，更是将这些发现转化为解决抗生素耐药性等宏大命题的线索。
   </p>
   <p style="font-size: 1.05rem;">
     除了科研，我也喜欢折腾自己，学习新的技能，探索各种提高效率的工具。
@@ -51,6 +51,36 @@ permalink: /about/
         <li><strong>分析：</strong> MATLAB、Python等编程、ImageJ/Fiji 图像处理</li>
         <li><strong>作图：</strong> GraphPad Prism、Adobe Illustrator</li>
         <li><strong>管理：</strong> EndNote 等文献与数据管理工具</li>
+      </ul>
+    </div>
+  </div>
+
+<!-- 分隔线 -->
+  <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); margin: 2.5rem 0;">
+
+  <!-- 技能列表 (使用 Flex 布局制作两列卡片) -->
+  <h2 style="border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-bottom: 1.5rem;">业余技能</h2>
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <!-- 技能卡 1 -->
+    <div style="flex: 1; min-width: 250px; background: #fafbfc; border: 1px solid #e1e4e8; padding: 15px 20px; border-radius: 8px;">
+      <h4 style="margin-top: 0; color: #0366d6; margin-bottom: 0.8rem;">✋️ 动手能力</h4>
+      <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
+        <li>电器维修</li>
+        <li>3D建模</li>
+        <li>DIY</li>
+        <li>🏀篮球、🏸羽毛球</li>
+      </ul>
+    </div>
+    
+    <!-- 技能卡 2 -->
+    <div style="flex: 1; min-width: 250px; background: #fafbfc; border: 1px solid #e1e4e8; padding: 15px 20px; border-radius: 8px;">
+      <h4 style="margin-top: 0; color: #d73a49; margin-bottom: 0.8rem;">💻 脑力相关</h4>
+      <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
+        <li>资源收集能力</li>
+        <li>学习能力</li>
+        <li>适应能力</li>
+        <li>Software Crack</li>
       </ul>
     </div>
   </div>
