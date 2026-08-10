@@ -4,12 +4,12 @@ title: Research
 permalink: /research/
 ---
 
-# Research
-
-
+---
 ## Research Interest
 
 My research focuses on the physiology of bacterial communities and how bacteria adapt to environmental stress, especially antibiotic pressure.
+
+---
 
 ## Research Tools
 
@@ -17,7 +17,8 @@ My research focuses on the physiology of bacterial communities and how bacteria 
 - Microscope
 - Coding
 - ......
-
+  
+---
 ## Current Topics
 
 - Biofilm heterogeneity
