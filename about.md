@@ -66,9 +66,6 @@ permalink: /about/
     <a href="mailto:hsx19@tsinghua.org.cn" style="display: inline-flex; align-items: center; justify-content: center; background-color: #24292e; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 500; transition: background-color 0.2s;">
       ✉️ Email: hsx19@tsinghua.org.cn
     </a>
-    <a href="https://github.com/whosocial" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; background-color: #fafbfc; color: #24292e; border: 1px solid #d1d5da; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 500; transition: background-color 0.2s;">
-      🐙 GitHub: whosocial
-    </a>
   </div>
 
 </div>
