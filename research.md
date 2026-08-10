@@ -9,20 +9,22 @@ permalink: /research/
 
 ## Research Interest
 
-My research focuses on how bacteria adapt to environmental stress, especially antibiotic pressure.
+My research focuses on the physiology of bacterial communities and how bacteria adapt to environmental stress, especially antibiotic pressure.
 
+## Research Tools
+
+- Microfluidic Chip
+- Microscope
+- Coding
+- ......
 
 ## Current Topics
 
+- Biofilm heterogeneity
+
 - Antibiotic stress response
 
-- Metabolic remodeling
+- Metabolic pathway
 
 - Bacterial physiology
 
-- Population heterogeneity
-
-
-## Model System
-
-Escherichia coli
