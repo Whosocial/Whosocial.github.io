@@ -4,7 +4,6 @@ title: Publications
 permalink: /publications/
 ---
 
-# Publications
 
 
 1.	**Shouxian Hu**, Yulin Zhao, Jintao Liu*. (2026). [Combination of glucose and oxygen gradients dictates metabolic regime and antibiotic tolerance of biofilms](https://www.langtaosha.org.cn/lts/zh_Hans/preprint/view/254). (Submitted, 第一作者)
