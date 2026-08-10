@@ -13,8 +13,8 @@ description: "经过一番折腾，我的个人网站终于上线了。这里将
 
 <!-- 居中显示图片并添加轻微阴影与图注，提升视觉质感 -->
 <div style="text-align: center; margin: 2rem 0;">
-  <img src="/assets/images/Gphoto.png" alt="大肠杆菌代谢示意图" style="max-width: 90%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <p style="font-size: 0.9rem; color: #666; margin-top: 12px;"><em>👆 附上一张我熟悉的大肠杆菌代谢示意图，作为开篇纪念。</em></p>
+  <img src="/assets/images/Gphoto.png" alt="照片" style="max-width: 90%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <p style="font-size: 0.9rem; color: #666; margin-top: 12px;"><em>👆 附上一张好看的图片，作为开篇纪念。</em></p>
 </div>
 
 ## 💡 为什么建立这个博客？
