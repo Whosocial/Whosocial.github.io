@@ -78,12 +78,6 @@ permalink: /publications/
 <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); margin: 3rem 0;">
 
 <p style="font-size: 0.9rem; color: #586069; text-align: center;">
-  💡 提示：使用 Adobe Illustrator 或 Fiji 导出合适的科研图片（建议比例 4:3 左右）后，取消左侧注释并填入正确的图片路径即可。
+  💡 广告招租中......
 </p>
-"""
 
-file_path = "publications_with_GA_v2.md"
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print(f"File created successfully at {file_path}")
