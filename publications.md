@@ -44,7 +44,7 @@ permalink: /publications/
   <p style="margin-bottom: 0.8rem; font-style: italic; color: #586069; font-size: 0.95rem;">
     Nature Chemical Biology, 21, 867-875 (2025).
   </p>
-  
+
   <!-- 标签与按钮区 -->
   <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
     <span style="background: #f0fff4; color: #2f855a; border: 1px solid #c6f6d5; padding: 2px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: 500;">共同第一作者</span>
