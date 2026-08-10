@@ -1,4 +1,4 @@
-html_content = """---
+---
 layout: page
 title: Publications
 permalink: /publications/
