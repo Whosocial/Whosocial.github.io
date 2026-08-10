@@ -22,7 +22,7 @@ permalink: /publications/
     <div style="width: 100%; height: 140px; background: #f6f8fa; border: 2px dashed #d1d5da; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-align: center; color: #586069; font-size: 0.85rem; padding: 10px;">
       <span>🖼️<br>在此处替换为<br>E. coli 生物被膜<br>荧光成像图</span>
     </div>
-    <!-- <img src="/assets/images/2026-abstract.png" style="width: 100%; border-radius: 8px; border: 1px solid #eaecef; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" alt="Graphical Abstract for 2026 Paper"> -->
+    <img src="/assets/images/2026-abstract.png" style="width: 100%; border-radius: 8px; border: 1px solid #eaecef; box-shadow: 0 2px 4px rgba(0,0,0,0.05);" alt="Graphical Abstract for 2026 Paper">
   </div>
 
   <!-- 右侧：论文文字信息 -->
