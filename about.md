@@ -37,10 +37,10 @@ permalink: /about/
     <div style="flex: 1; min-width: 250px; background: #fafbfc; border: 1px solid #e1e4e8; padding: 15px 20px; border-radius: 8px;">
       <h4 style="margin-top: 0; color: #0366d6; margin-bottom: 0.8rem;">🔬 湿实验与显微成像</h4>
       <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
-        <li>微生物培养与细菌群落分析</li>
+        <li>微生物培养与改造</li>
         <li>微流控芯片技术应用</li>
-        <li>高级荧光显微成像系统操作</li>
-        <li>分子生物学与组学基础实验</li>
+        <li>多种显微成像操作</li>
+        <li>多组学生物技术</li>
       </ul>
     </div>
     
@@ -48,7 +48,7 @@ permalink: /about/
     <div style="flex: 1; min-width: 250px; background: #fafbfc; border: 1px solid #e1e4e8; padding: 15px 20px; border-radius: 8px;">
       <h4 style="margin-top: 0; color: #d73a49; margin-bottom: 0.8rem;">💻 数据分析与可视化</h4>
       <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
-        <li><strong>分析：</strong> MATLAB 编程、ImageJ/Fiji 图像处理</li>
+        <li><strong>分析：</strong> MATLAB、Python等编程、ImageJ/Fiji 图像处理</li>
         <li><strong>作图：</strong> GraphPad Prism、Adobe Illustrator</li>
         <li><strong>管理：</strong> EndNote 等文献与数据管理工具</li>
       </ul>
