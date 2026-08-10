@@ -75,7 +75,7 @@ permalink: /about/
     
     <!-- 技能卡 2 -->
     <div style="flex: 1; min-width: 250px; background: #fafbfc; border: 1px solid #e1e4e8; padding: 15px 20px; border-radius: 8px;">
-      <h4 style="margin-top: 0; color: #d73a49; margin-bottom: 0.8rem;">💻 脑力相关</h4>
+      <h4 style="margin-top: 0; color: #d73a49; margin-bottom: 0.8rem;">🧠 脑力相关</h4>
       <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
         <li>资源收集能力</li>
         <li>学习能力</li>
