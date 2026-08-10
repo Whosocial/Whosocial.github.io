@@ -10,7 +10,7 @@ permalink: /about/
   <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-bottom: 2rem;">
     <div style="flex: 1; min-width: 300px;">
       <h1 style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">你好，我是古月 👋</h1>
-      <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">来自四川绵阳，一位充满探索欲的基础医学博士。</p>
+      <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">来自四川绵阳，一位充满探索欲的医学博士。</p>
       
       <!-- 求职状态 Badge -->
       <div style="display: inline-block; background-color: #e6fffa; border: 1px solid #b2f5ea; color: #319795; padding: 4px 12px; border-radius: 999px; font-size: 0.9rem; font-weight: bold;">
@@ -20,10 +20,10 @@ permalink: /about/
   </div>
 
   <p style="font-size: 1.05rem;">
-    我专注于<strong>细菌学与微生物技术</strong>，致力于解析细菌群落（特别是生物被膜）在环境压力下的生理响应与代谢异质性。对我而言，科研不仅是在显微镜下寻找微观世界的答案，更是将这些发现转化为解决抗生素耐药性等宏大命题的线索。
+    科研上，我专注于<strong>细菌学与微生物技术</strong>，致力于解析细菌群落（特别是生物被膜）在环境压力下的生理响应与代谢异质性。对我而言，科研不仅是在显微镜下寻找微观世界的答案，更是将这些发现转化为解决抗生素耐药性等宏大命题的线索。
   </p>
   <p style="font-size: 1.05rem;">
-    除了实验室里的微流控芯片和移液枪，我也喜欢折腾代码与数据，探索各种提高效率的工具。科研之余，我通常活跃在篮球场和羽毛球馆。
+    除了科研，我也喜欢折腾自己，学习新的技能，探索各种提高效率的工具。
   </p>
 
   <!-- 分隔线 -->
