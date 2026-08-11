@@ -34,6 +34,35 @@ permalink: /about/
       <li><strong>吉林大学</strong> | 生物科学 (生命科学学院) - 理学学士 (2015 - 2019)</li>
     </ul>
   </div>
+  
+<!-- 荣誉与奖项 -->
+  <h2 style="border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-bottom: 1.5rem;">荣誉与奖项</h2>
+  <div style="background: #fafbfc; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; margin-bottom: 2.5rem;">
+    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
+      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2025年</div>
+      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学校一等奖学金</div>
+    </div>
+    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
+      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2024年</div>
+      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学校二等奖学金</div>
+    </div>
+    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
+      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2023年</div>
+      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学微生物传染病中心年会 <strong>“优秀学术海报奖”</strong></div>
+    </div>
+    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
+      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2022年</div>
+      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学全球健康与传染病学术论坛 <strong>“优秀学术海报奖”</strong></div>
+    </div>
+    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
+      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2018年</div>
+      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">吉林大学校一等奖学金</div>
+    </div>
+    <div style="display: flex; align-items: flex-start;">
+      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2015-2017年</div>
+      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">吉林大学校二等奖学金、个人奖学金</div>
+    </div>
+  </div>
 
   <!-- 分隔线 -->
   <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); margin: 2.5rem 0;">
