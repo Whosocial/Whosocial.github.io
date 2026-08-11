@@ -9,7 +9,7 @@ permalink: /more/honors/
   <!-- 引言 -->
   <div style="margin-bottom: 3rem; text-align: center;">
     <p style="font-size: 1.15rem; color: #4a5568; max-width: 700px; margin: 0 auto;">
-      荣誉不是终点，而是漫长探索道路上的里程碑。<br>它们记录了我在微观世界里摸爬滚打的日夜，也是激励我继续前行的微光。
+      荣誉不是终点，而是漫长探索道路上的里程碑。<br>它们记录了我在求学生涯中的点点浪花，亦是激励我继续前行的微光。
     </p>
   </div>
 
@@ -27,13 +27,7 @@ permalink: /more/honors/
       <div style="position: absolute; top: -15px; right: -15px; font-size: 5rem; opacity: 0.05;">🏅</div>
       <div style="color: #b8860b; font-weight: bold; font-size: 0.9rem; margin-bottom: 10px;">2023年</div>
       <h3 style="margin-top: 0; color: #24292e; font-size: 1.2rem; line-height: 1.4;">清华大学微生物传染病中心年会<br><span style="color: #b8860b;">“优秀学术海报奖”</span></h3>
-      <p style="font-size: 0.9rem; color: #586069; margin-bottom: 1rem;">
-        基于微生物群体在复杂微环境中的代谢分层现象与抗生素耐受性机制的研究成果展示。
-      </p>
-      <!-- 图片占位符，可替换为你当时的海报照片或颁奖照片 -->
-      <div style="width: 100%; height: 120px; background: #f6f8fa; border: 1px dashed #d1d5da; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #6a737d;">
-        🖼️ [在此可插入海报/现场实况照片]
-      </div>
+
     </div>
 
     <!-- 学术海报奖 2 -->
