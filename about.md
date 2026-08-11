@@ -10,7 +10,7 @@ permalink: /about/
   <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-bottom: 2rem;">
     <div style="flex: 1; min-width: 300px;">
       <h1 style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">你好，我是古月 👋</h1>
-      <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">来自四川绵阳，一位毕业于清华大学基础医学院的医学博士[cite: 1]。</p>
+      <p style="font-size: 1.1rem; color: #4a5568; margin-bottom: 1rem;">来自四川绵阳，一位毕业于清华大学基础医学院的医学博士。</p>
       
       <!-- 求职状态 Badge -->
       <div style="display: inline-block; background-color: #e6fffa; border: 1px solid #b2f5ea; color: #319795; padding: 4px 12px; border-radius: 999px; font-size: 0.9rem; font-weight: bold;">
