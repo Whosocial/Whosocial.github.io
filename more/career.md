@@ -9,7 +9,7 @@ permalink: /more/career/
   <!-- 引言 -->
   <div style="margin-bottom: 3rem; text-align: center;">
     <p style="font-size: 1.15rem; color: #4a5568; max-width: 700px; margin: 0 auto;">
-      科研是一场长途跋涉。<br>在这里，我记录了自己所见的各种景色，如今再回首，当真是令人唏嘘。
+      科研是一场长途跋涉。<br>在这里，我记录了自己所见的各种景色；如今再回首，当真是令人唏嘘。
     </p>
   </div>
 
