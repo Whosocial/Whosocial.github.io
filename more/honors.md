@@ -87,25 +87,25 @@ permalink: /more/honors/
   <!-- 其他荣誉 (预留空位) -->
   <!-- ========================================== -->
   <h2 style="border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-bottom: 2rem; color: #24292e; display: flex; align-items: center; gap: 10px;">
-    <span>🌟 综合素质与跨界荣誉</span>
+    <span>🌟 综合素质与其他荣誉</span>
   </h2>
   <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1.5rem;">除了学术科研，我也在其他热爱的领域（如体育赛事、科技竞赛或志愿服务）留下了一些足迹：</p>
 
   <!-- 占位符 1 -->
   <div style="background: #ffffff; border: 2px dashed #d1d5da; border-radius: 8px; padding: 20px; margin-bottom: 1.5rem; transition: 0.2s;">
-    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">[年份，如：202X年]</div>
-    <h3 style="margin-top: 0; color: #24292e; font-size: 1.1rem; margin-bottom: 8px;">[在此填写荣誉名称，如：某某院系篮球赛冠军 / 某某创新创业大赛二等奖]</h3>
+    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">[年份，如：2016年]</div>
+    <h3 style="margin-top: 0; color: #24292e; font-size: 1.1rem; margin-bottom: 8px;">五子棋比赛冠军</h3>
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 0;">
-      [简要描述该荣誉的获取背景、你的贡献或它的特殊意义...]
+      数学、物理、生命科学学院三院棋类联赛...
     </p>
   </div>
 
   <!-- 占位符 2 -->
   <div style="background: #ffffff; border: 2px dashed #d1d5da; border-radius: 8px; padding: 20px; transition: 0.2s;">
-    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">[年份，如：202X年]</div>
-    <h3 style="margin-top: 0; color: #24292e; font-size: 1.1rem; margin-bottom: 8px;">[在此填写其他荣誉称号，如：优秀学生干部 / 优秀志愿者]</h3>
+    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">2017</div>
+    <h3 style="margin-top: 0; color: #24292e; font-size: 1.1rem; margin-bottom: 8px;">羽毛球比赛冠军</h3>
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 0;">
-      [简要描述...]
+      生命科学学院羽毛球比赛冠军...
     </p>
   </div>
 
