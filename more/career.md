@@ -3,7 +3,122 @@ layout: page
 title: 科研生涯
 permalink: /more/career/
 ---
-# 科研生涯
 
-这里是关于我科研生涯的详细介绍...
-（你可以在这里把你简历中项目一、项目二的背景、难点、解决思路进行详细的图文扩写）
+<div style="max-width: 850px; margin: 0 auto; color: #2d3748; line-height: 1.8;">
+
+  <!-- 引言 -->
+  <div style="margin-bottom: 3rem; text-align: center;">
+    <p style="font-size: 1.15rem; color: #4a5568; max-width: 700px; margin: 0 auto;">
+      科研是一场长途跋涉。<br>在这里，我记录了自己所见的各种景色，如今再回首，当真是令人唏嘘。
+    </p>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 博士阶段 (清华大学) -->
+  <!-- ========================================== -->
+  <h2 style="border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-bottom: 2rem; color: #24292e; display: flex; align-items: center; gap: 10px;">
+    <span>🎓 博士研究阶段</span>
+    <span style="font-size: 1rem; color: #6a737d; font-weight: normal;">(清华大学 · 2019 - 2026)</span>
+  </h2>
+
+  <!-- 项目一 -->
+  <div style="background: #ffffff; border: 1px solid #e1e4e8; border-radius: 10px; padding: 25px; margin-bottom: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
+      <h3 style="margin: 0; color: #0366d6; font-size: 1.3rem;">细菌生物被膜在磷饥饿下的生存策略研究</h3>
+      <span style="background: #f0f8ff; color: #0366d6; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #cce5ff;">2023.07 - 2025.01 | 项目负责人</span>
+    </div>
+    
+    <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1.2rem;">
+      <strong>项目背景：</strong>探究细菌生物被膜在极端营养（磷）匮乏条件下的群体存续与空间扩展机制。
+    </p>
+
+    <h4 style="font-size: 1rem; color: #24292e; margin-bottom: 0.5rem;">核心攻坚与技术实现：</h4>
+    <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1.2rem;">
+      <li><strong>平台搭建：</strong> 自主设计并利用微加工工艺制作了微流控芯片，成功搭建了细菌生物被膜动态培养与实时成像平台。</li>
+      <li><strong>动态监测：</strong> 利用荧光显微镜定量成像技术，高动态、高分辨率地捕捉并量化了细菌群体在空间和时间维度上的表型演变。</li>
+      <li><strong>机制解析：</strong> 结合细菌基因敲除、菌株改造与代谢通路分析，系统阐明了营养回收的分子机理。</li>
+    </ul>
+
+    <div style="background: #f6f8fa; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+      <strong style="color: #24292e;">🏆 项目成果：</strong>
+      <span style="font-size: 0.95rem;">首次揭示了细菌通过群体特异性细胞死亡和营养回收维持群体扩展的全新代谢适应性机制。相关成果以共同第一作者身份发表于 <em>Nature Chemical Biology</em> (IF：15.7)。</span>
+    </div>
+  </div>
+
+  <!-- 项目二 -->
+  <div style="background: #ffffff; border: 1px solid #e1e4e8; border-radius: 10px; padding: 25px; margin-bottom: 3.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
+      <h3 style="margin: 0; color: #0366d6; font-size: 1.3rem;">细菌生物被膜代谢的空间特性及抗生素耐受性机制研究</h3>
+      <span style="background: #f0f8ff; color: #0366d6; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #cce5ff;">2020.07 - 2026.01 | 项目负责人</span>
+    </div>
+    
+    <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1.2rem;">
+      <strong>项目背景：</strong>在复杂多梯度物理体系中，探究微环境代谢分层与细菌抗生素耐受性的关联，寻找新型抗菌策略。
+    </p>
+
+    <h4 style="font-size: 1rem; color: #24292e; margin-bottom: 0.5rem;">核心攻坚与技术实现：</h4>
+    <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1.2rem;">
+      <li><strong>模型开发：</strong> 独创性开发了三维包埋细菌生物被膜培养平台，成功在体外模拟了体内复杂的多梯度感染微环境。</li>
+      <li><strong>耐药分析：</strong> 系统探索了氧气与葡萄糖梯度对生物被膜内细菌代谢分层及药物靶向效能的影响，揭示了生物被膜对抗生素的耐受机制。</li>
+      <li><strong>机制解析：</strong> 结合遗传学手段、显微成像技术与代谢组学技术，证实代谢产物（如乙酸）重塑微环境并调控耐药表型的分子机制，为基于微环境干预的抗生素代谢佐剂研发给出了关键靶点提示。</li>
+    </ul>
+
+    <div style="background: #f6f8fa; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+      <strong style="color: #24292e;">🏆 项目成果：</strong>
+      <span style="font-size: 0.95rem;">明确了基于微环境干预的抗生素增效新策略。成果连续斩获清华大学微生物传染病中心年会等“优秀学术海报奖”；相关第一作者论文已处于投稿阶段。</span>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- 本科阶段 (吉林大学) -->
+  <!-- ========================================== -->
+  <h2 style="border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-bottom: 2rem; color: #24292e; display: flex; align-items: center; gap: 10px;">
+    <span>🌱 本科积累阶段</span>
+    <span style="font-size: 1rem; color: #6a737d; font-weight: normal;">(吉林大学 · 2015 - 2019)</span>
+  </h2>
+
+  <!-- 本科项目占位符 1 -->
+  <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 1.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">[在此处填写本科项目一名称]</h3>
+      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">项目时间 | 承担角色</span>
+    </div>
+    
+    <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
+      <strong>项目背景：</strong>简要描述你当时为什么做这个项目，或者解决了什么具体问题...
+    </p>
+
+    <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
+      <li><strong>实验技术：</strong> 描述你在这个项目中掌握了哪些基础实验技能（如 PCR、克隆等）...</li>
+      <li><strong>主要职责：</strong> 你在这个项目中具体负责了哪一部分工作...</li>
+    </ul>
+
+    <div style="background: #fafbfc; padding: 12px; border-radius: 6px; border-left: 4px solid #0366d6; font-size: 0.9rem; color: #586069;">
+      <strong>项目收获：</strong>通过这个项目，我初步建立起了严谨的科研思维...
+    </div>
+  </div>
+
+  <!-- 本科项目占位符 2 -->
+  <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 2.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">[在此处填写本科项目二名称]</h3>
+      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">项目时间 | 承担角色</span>
+    </div>
+    
+    <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
+      <strong>项目背景：</strong>填写项目二的相关背景信息...
+    </p>
+
+    <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
+      <li><strong>关键执行：</strong> 填写你采取了什么样的方法...</li>
+      <li><strong>数据分析：</strong> 填写你是如何处理实验数据的...</li>
+    </ul>
+    
+    <div style="background: #fafbfc; padding: 12px; border-radius: 6px; border-left: 4px solid #0366d6; font-size: 0.9rem; color: #586069;">
+      <strong>项目收获：</strong>填写相关的论文、专利、比赛奖项或是个人的成长感悟...
+    </div>
+  </div>
+
+</div>
+
