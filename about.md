@@ -20,7 +20,7 @@ permalink: /about/
   </div>
 
   <p style="font-size: 1.05rem;">
-    师从 Jintao Liu 教授[cite: 1]，我的科研重心聚焦于<strong>细菌学与微生物技术</strong>，致力于解析细菌群体（特别是生物被膜）在极端营养匮乏与抗生素压力下的生理响应与代谢异质性。对我而言，科研不仅是在显微镜下寻找微观世界的答案，更是将这些底层发现转化为攻克抗生素耐药性等宏大命题的线索。
+    我的科研重心聚焦于<strong>细菌学与微生物技术</strong>，致力于解析细菌群体（特别是生物被膜）在极端营养匮乏与抗生素压力下的生理响应与代谢异质性。
   </p>
   <p style="font-size: 1.05rem;">
     科研之外，我是一个充满好奇心的“折腾家”。我喜欢从零开始学习新技能，探索提升效率的工具，也热衷于在球场挥洒汗水或沉浸在手工创造的世界里。
@@ -87,7 +87,7 @@ permalink: /about/
       <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
         <li>极强的信息检索与资源收集能力</li>
         <li>擅长快速跨界掌握非专业新技能</li>
-        <li>软件逆向工程探索与高阶环境配置调试</li>
+        <li>软件逆向工程探索</li>
       </ul>
     </div>
   </div>
@@ -102,9 +102,6 @@ permalink: /about/
   <div style="display: flex; gap: 15px; margin-top: 1.5rem;">
     <a href="mailto:hsx19@tsinghua.org.cn" style="display: inline-flex; align-items: center; justify-content: center; background-color: #24292e; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 500; transition: background-color 0.2s;">
       ✉️ Email: hsx19@tsinghua.org.cn
-    </a>
-    <a href="https://github.com/whosocial" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; background-color: #fafbfc; color: #24292e; border: 1px solid #d1d5da; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-weight: 500; transition: background-color 0.2s;">
-      🐙 GitHub: whosocial
     </a>
   </div>
 
