@@ -9,7 +9,7 @@ layout: home
   <!-- 问候语：更加亲切且专业 -->
   <h1 style="margin-top: 1.5rem; font-weight: bold; font-size: 2.2rem;">你好，我是古月 👋</h1>
   <p style="font-size: 1.2rem; color: #4a5568; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-    欢迎来到我的个人网站。我是一位刚刚取得医学博士学位的“研究僧”。<br>热衷于探索微观世界的秩序与奥秘。
+    欢迎来到我的个人网站。我是一位刚刚取得医学博士学位的“研究僧”。<br>热衷于解决各种问题。
   </p>
 </div>
 
