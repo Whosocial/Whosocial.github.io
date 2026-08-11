@@ -75,7 +75,7 @@ permalink: /about/
     <div style="flex: 1; min-width: 250px; background: #fafbfc; border: 1px solid #e1e4e8; padding: 15px 20px; border-radius: 8px;">
       <h4 style="margin-top: 0; color: #0366d6; margin-bottom: 0.8rem;">✋️ 极客精神与动手创造</h4>
       <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.95rem; color: #586069;">
-        <li>硬核手工 DIY，例如设计制作定制化纸艺立体书[cite: 1]</li>
+        <li>手工 DIY</li>
         <li>3D 建模与精密仪器/电器维修</li>
         <li>活跃在 🏀篮球场与 🏸羽毛球馆</li>
       </ul>
