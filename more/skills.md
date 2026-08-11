@@ -9,7 +9,7 @@ permalink: /more/skills/
   <!-- 引言 -->
   <div style="margin-bottom: 3rem; text-align: center;">
     <p style="font-size: 1.15rem; color: #4a5568; max-width: 700px; margin: 0 auto;">
-      现代科研早已不是单一维度的竞争，而是“湿实验”与“干计算”的深度融合。<br>下面是我在科研探索与日常生活中积攒的“武器库”。
+      如今拥有“一技之长”便可生活无虞，但“技多不压身”亦是良言。你学的东西总有一天能排上用场，因此我希望能不断地学习新的知识和技能。<br>下面是我在科研探索与日常生活中积攒的“武器库”。
     </p>
   </div>
 
