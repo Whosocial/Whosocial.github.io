@@ -35,13 +35,7 @@ permalink: /more/honors/
       <div style="position: absolute; top: -15px; right: -15px; font-size: 5rem; opacity: 0.05;">🏅</div>
       <div style="color: #b8860b; font-weight: bold; font-size: 0.9rem; margin-bottom: 10px;">2022年</div>
       <h3 style="margin-top: 0; color: #24292e; font-size: 1.2rem; line-height: 1.4;">清华大学全球健康与传染病学术论坛<br><span style="color: #b8860b;">“优秀学术海报奖”</span></h3>
-      <p style="font-size: 0.9rem; color: #586069; margin-bottom: 1rem;">
-        针对三维包埋细菌生物被膜培养平台的独创性开发及其在耐药性分析中的应用展示。
-      </p>
-      <!-- 图片占位符 -->
-      <div style="width: 100%; height: 120px; background: #f6f8fa; border: 1px dashed #d1d5da; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #6a737d;">
-        🖼️ [在此可插入海报/现场实况照片]
-      </div>
+     
     </div>
 
   </div>
@@ -93,7 +87,7 @@ permalink: /more/honors/
 
   <!-- 占位符 1 -->
   <div style="background: #ffffff; border: 2px dashed #d1d5da; border-radius: 8px; padding: 20px; margin-bottom: 1.5rem; transition: 0.2s;">
-    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">[年份，如：2016年]</div>
+    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">2016年</div>
     <h3 style="margin-top: 0; color: #24292e; font-size: 1.1rem; margin-bottom: 8px;">五子棋比赛冠军</h3>
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 0;">
       数学、物理、生命科学学院三院棋类联赛...
@@ -102,7 +96,7 @@ permalink: /more/honors/
 
   <!-- 占位符 2 -->
   <div style="background: #ffffff; border: 2px dashed #d1d5da; border-radius: 8px; padding: 20px; transition: 0.2s;">
-    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">2017</div>
+    <div style="color: #6a737d; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">2017年</div>
     <h3 style="margin-top: 0; color: #24292e; font-size: 1.1rem; margin-bottom: 8px;">羽毛球比赛冠军</h3>
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 0;">
       生命科学学院羽毛球比赛冠军...
