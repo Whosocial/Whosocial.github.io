@@ -14,6 +14,7 @@ header_pages:
   - about.md
   - research.md
   - publications.md # 学者必备
+  - more.md # 学者必备
 
 minima:
   social_links:
