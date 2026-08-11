@@ -86,7 +86,7 @@ permalink: /more/career/
     </div>
     
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
-      <strong>项目背景：</strong>人参皂苷Rh2抗肿瘤蛋白靶点的筛选，对重组腺病毒肿瘤疫苗进行安全性和有效性评估...
+      <strong>项目背景：</strong>对重组腺病毒肿瘤疫苗进行安全性和有效性评估...
     </p>
 
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
@@ -95,7 +95,7 @@ permalink: /more/career/
     </ul>
 
     <div style="background: #fafbfc; padding: 12px; border-radius: 6px; border-left: 4px solid #0366d6; font-size: 0.9rem; color: #586069;">
-      <strong>项目收获：</strong>通过这个项目，...
+      <strong>项目收获：</strong>熟悉掌握病毒操作技术和抗体检测方法...
     </div>
   </div>
 
