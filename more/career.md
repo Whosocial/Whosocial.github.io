@@ -81,12 +81,12 @@ permalink: /more/career/
   <!-- 本科项目占位符 1 -->
   <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 1.5rem;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
-      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">肿瘤腺病毒载体疫苗诱导的中和抗体检测</h3>
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">肿瘤腺病毒载体疫苗诱导的中和抗体检测（本科毕业设计）</h3>
       <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">2018-2019 | 项目负责人</span>
     </div>
     
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
-      <strong>项目背景：</strong>**本科毕业设计**,人参皂苷Rh2抗肿瘤蛋白靶点的筛选，对重组腺病毒肿瘤疫苗进行安全性和有效性评估...
+      <strong>项目背景：</strong>人参皂苷Rh2抗肿瘤蛋白靶点的筛选，对重组腺病毒肿瘤疫苗进行安全性和有效性评估...
     </p>
 
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
@@ -102,12 +102,12 @@ permalink: /more/career/
   <!-- 本科项目占位符 2 -->
   <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 2.5rem;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
-      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">人参皂苷Rh2抗肿瘤蛋白靶点的筛选</h3>
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">人参皂苷Rh2抗肿瘤蛋白靶点的筛选（生命科学竞赛）</h3>
       <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">2017-2018 | 项目负责人</span>
     </div>
     
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
-      <strong>项目背景：</strong>**生命科学竞赛**，通过蛋白组学技术筛选人参皂苷Rh2抗肿瘤蛋白的潜在靶点...
+      <strong>项目背景：</strong>通过蛋白组学技术筛选人参皂苷Rh2抗肿瘤蛋白的潜在靶点...
     </p>
 
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
@@ -123,12 +123,12 @@ permalink: /more/career/
   <!-- 本科项目占位符 3 -->
   <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 2.5rem;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
-      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">PARP抑制剂和ROS增强药物的协同抗癌效果研究</h3>
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">PARP抑制剂和ROS增强药物的协同抗癌效果研究（大学生创新创业训练计划）</h3>
       <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">2016-2018 | 项目负责人</span>
     </div>
     
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
-      <strong>项目背景：</strong>**大学生创新创业训练计划**，探究PARP抑制剂和ROS增强药物的协同抗癌效果...
+      <strong>项目背景：</strong>探究PARP抑制剂和ROS增强药物的协同抗癌效果...
     </p>
 
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
