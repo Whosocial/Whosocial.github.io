@@ -96,7 +96,7 @@ permalink: /more/
     <div>
       <div class="hub-icon">⛰️</div>
       <div class="hub-title">他山之石</div>
-      <div class="hub-desc">“可以攻玉”。分享我平时收集的科研效率工具、优质文献检索源、以及有趣的跨界学习资源。</div>
+      <div class="hub-desc">“可以攻玉”。分享我平时收集的科研效率工具和有趣的跨界学习资源。</div>
     </div>
     <div class="hub-link-text">阅读详情 <span>&rarr;</span></div>
   </a>
