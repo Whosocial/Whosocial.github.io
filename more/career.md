@@ -34,7 +34,7 @@ permalink: /more/career/
 
     <h4 style="font-size: 1rem; color: #24292e; margin-bottom: 0.5rem;">核心攻坚与技术实现：</h4>
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1.2rem;">
-      <li><strong>平台搭建：</strong> 自主设计并利用微加工工艺制作了微流控芯片，成功搭建了细菌生物被膜动态培养与实时成像平台。</li>
+      <li><strong>平台搭建：</strong> 设计并利用微加工工艺制作了微流控芯片，搭建了细菌生物被膜动态培养与实时成像平台。</li>
       <li><strong>动态监测：</strong> 利用荧光显微镜定量成像技术，高动态、高分辨率地捕捉并量化了细菌群体在空间和时间维度上的表型演变。</li>
       <li><strong>机制解析：</strong> 结合细菌基因敲除、菌株改造与代谢通路分析，系统阐明了营养回收的分子机理。</li>
     </ul>
@@ -58,7 +58,7 @@ permalink: /more/career/
 
     <h4 style="font-size: 1rem; color: #24292e; margin-bottom: 0.5rem;">核心攻坚与技术实现：</h4>
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1.2rem;">
-      <li><strong>模型开发：</strong> 独创性开发了三维包埋细菌生物被膜培养平台，成功在体外模拟了体内复杂的多梯度感染微环境。</li>
+      <li><strong>模型开发：</strong> 独创性开发了三维包埋细菌生物被膜培养平台。</li>
       <li><strong>耐药分析：</strong> 系统探索了氧气与葡萄糖梯度对生物被膜内细菌代谢分层及药物靶向效能的影响，揭示了生物被膜对抗生素的耐受机制。</li>
       <li><strong>机制解析：</strong> 结合遗传学手段、显微成像技术与代谢组学技术，证实代谢产物（如乙酸）重塑微环境并调控耐药表型的分子机制，为基于微环境干预的抗生素代谢佐剂研发给出了关键靶点提示。</li>
     </ul>
@@ -81,42 +81,63 @@ permalink: /more/career/
   <!-- 本科项目占位符 1 -->
   <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 1.5rem;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
-      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">[在此处填写本科项目一名称]</h3>
-      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">项目时间 | 承担角色</span>
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">肿瘤腺病毒载体疫苗诱导的中和抗体检测</h3>
+      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">2018-2019 | 项目负责人</span>
     </div>
     
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
-      <strong>项目背景：</strong>简要描述你当时为什么做这个项目，或者解决了什么具体问题...
+      <strong>项目背景：</strong>**本科毕业设计**,人参皂苷Rh2抗肿瘤蛋白靶点的筛选，对重组腺病毒肿瘤疫苗进行安全性和有效性评估...
     </p>
 
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
-      <li><strong>实验技术：</strong> 描述你在这个项目中掌握了哪些基础实验技能（如 PCR、克隆等）...</li>
-      <li><strong>主要职责：</strong> 你在这个项目中具体负责了哪一部分工作...</li>
+      <li><strong>实验技术：</strong> 细胞培养、病毒纯化与滴度测定、抗体检测等</li>
+      <li><strong>主要职责：</strong> 从重组腺病毒的纯化与鉴定到中和抗体测定的全流程实验与数据分析</li>
     </ul>
 
     <div style="background: #fafbfc; padding: 12px; border-radius: 6px; border-left: 4px solid #0366d6; font-size: 0.9rem; color: #586069;">
-      <strong>项目收获：</strong>通过这个项目，我初步建立起了严谨的科研思维...
+      <strong>项目收获：</strong>通过这个项目，...
     </div>
   </div>
 
   <!-- 本科项目占位符 2 -->
   <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 2.5rem;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
-      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">[在此处填写本科项目二名称]</h3>
-      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">项目时间 | 承担角色</span>
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">人参皂苷Rh2抗肿瘤蛋白靶点的筛选</h3>
+      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">2017-2018 | 项目负责人</span>
     </div>
     
     <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
-      <strong>项目背景：</strong>填写项目二的相关背景信息...
+      <strong>项目背景：</strong>**生命科学竞赛**，通过蛋白组学技术筛选人参皂苷Rh2抗肿瘤蛋白的潜在靶点...
     </p>
 
     <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
-      <li><strong>关键执行：</strong> 填写你采取了什么样的方法...</li>
-      <li><strong>数据分析：</strong> 填写你是如何处理实验数据的...</li>
+      <li><strong>关键执行：</strong> 蛋白质谱数据收集、生信数据分析...</li>
+      <li><strong>数据分析：</strong> 通过Python和R分析组学数据和可视化绘图...</li>
     </ul>
     
     <div style="background: #fafbfc; padding: 12px; border-radius: 6px; border-left: 4px solid #0366d6; font-size: 0.9rem; color: #586069;">
-      <strong>项目收获：</strong>填写相关的论文、专利、比赛奖项或是个人的成长感悟...
+      <strong>项目收获：</strong>初涉蛋白组学数据收集和分析，编程能力获得提升...
+    </div>
+  </div>
+
+  <!-- 本科项目占位符 3 -->
+  <div style="background: #ffffff; border: 1px dashed #d1d5da; border-radius: 10px; padding: 25px; margin-bottom: 2.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
+      <h3 style="margin: 0; color: #24292e; font-size: 1.15rem;">PARP抑制剂和ROS增强药物的协同抗癌效果研究</h3>
+      <span style="background: #f6f8fa; color: #586069; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #e1e4e8;">2016-2018 | 项目负责人</span>
+    </div>
+    
+    <p style="font-size: 0.95rem; color: #586069; margin-bottom: 1rem;">
+      <strong>项目背景：</strong>**大学生创新创业训练计划**，探究PARP抑制剂和ROS增强药物的协同抗癌效果...
+    </p>
+
+    <ul style="padding-left: 20px; font-size: 0.95rem; margin-bottom: 1rem; color: #4a5568;">
+      <li><strong>实验技术：</strong> 细胞培养与死活测定...</li>
+      <li><strong>数据分析：</strong> 通过Prism绘图...</li>
+    </ul>
+    
+    <div style="background: #fafbfc; padding: 12px; border-radius: 6px; border-left: 4px solid #0366d6; font-size: 0.9rem; color: #586069;">
+      <strong>项目收获：</strong>初次参与到科研项目中，学习了很多细胞学实验技能，项目也顺利结题并获奖...
     </div>
   </div>
 
