@@ -155,4 +155,4 @@ permalink: /about/
 
 </div>
   
-</div>
+
