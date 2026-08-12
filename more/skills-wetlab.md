@@ -105,7 +105,7 @@ permalink: /more/skills-wetlab/
 
 <div class="intro-text">
   严谨的实验操作是获取可靠科研数据的第一步。<br>
-  这里展示了我在博士期间建立并熟练掌握的核心实验技术体系，从微观流体控制到单细胞精度的荧光成像，再到多组学的数据挖掘。
+  这里展示了我在博士期间建立并熟练掌握的核心实验技术体系，从微观流体控制到单细胞精度的荧光成像，再到多组学的数据挖掘。(若无特殊说明，皆由个人独立操作完成)
 </div>
 
 <!-- ========================================== -->
@@ -120,7 +120,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-1-1.png" alt="设计"> 
-      <div class="img-placeholder-text">🖼️ AutoCAD<br>芯片设计图纸</div>
     </div>
     <div class="process-text">
       <h4>1. 芯片设计</h4>
@@ -131,7 +130,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-1-2.png" alt="光刻"> 
-      <div class="img-placeholder-text">🖼️ 黄光室<br>光刻工艺实拍</div>
     </div>
     <div class="process-text">
       <h4>2. 光刻制模</h4>
@@ -142,7 +140,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-1-3.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ PDMS<br>倒模与键合</div>
     </div>
     <div class="process-text">
       <h4>3. PDMS 制作</h4>
@@ -153,7 +150,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-1-4.png" alt="平台搭建">
-      <div class="img-placeholder-text">🖼️ 流体控制<br>与成像平台</div>
     </div>
     <div class="process-text">
       <h4>4. 平台搭建</h4>
@@ -175,7 +171,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-2-1.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 厌氧/好氧<br>菌株培养实拍</div>
     </div>
     <div class="process-text">
       <h4>1. 菌株培养</h4>
@@ -186,7 +181,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-2-2.png" alt="2">
-      <div class="img-placeholder-text">🖼️ 质粒图谱<br>或克隆验证图</div>
     </div>
     <div class="process-text">
       <h4>2. 基因编辑与质粒改造</h4>
@@ -197,7 +191,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-2-3.png" alt="3">
-      <div class="img-placeholder-text">🖼️ 药敏实验<br>或表型对比图</div>
     </div>
     <div class="process-text">
       <h4>3. 生理表征</h4>
@@ -219,29 +212,26 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-3-1.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 提取纯化<br>或质检电泳图</div>
     </div>
     <div class="process-text">
       <h4>1. 样品收集与制备</h4>
-      <p>严格控制酶解与降解，高质量完成代谢物提取、总 RNA 提取提纯以及标准化的转录组文库构建 (建库)。</p>
+      <p>高质量完成代谢物提取、总 RNA 提取提纯以及标准化的转录组文库构建 (建库)。</p>
     </div>
   </div>
 
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-3-2.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 测序仪<br>或送样单展示</div>
     </div>
     <div class="process-text">
       <h4>2. 样品上机</h4>
-      <p>完成样本的精确定量与质控（QC），熟知主流高通量测序平台及质谱平台的上机标准与参数要求。</p>
+      <p>完成样本的精确定量与质控（QC），熟知主流高通量测序平台及质谱平台的上机标准与参数要求（由技术人员辅助完成）。</p>
     </div>
   </div>
 
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-3-3.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 火山图<br>或通路富集代码</div>
     </div>
     <div class="process-text">
       <h4>3. 数据分析</h4>
@@ -252,7 +242,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-3-4.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 组学数据<br>高级可视化图表</div>
     </div>
     <div class="process-text">
       <h4>4. 可视化呈现</h4>
@@ -274,7 +263,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-4-1.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 高清单细胞<br>荧光成像图</div>
     </div>
     <div class="process-text">
       <h4>1. 单细胞成像</h4>
@@ -285,7 +273,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-4-2.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 生物被膜<br>大规模群体成像</div>
     </div>
     <div class="process-text">
       <h4>2. 群体成像</h4>
@@ -296,7 +283,6 @@ permalink: /more/skills-wetlab/
   <div class="process-card">
     <div class="process-img-wrapper">
       <img src="/assets/images/skills-metlab-4-3.png" alt="制作">
-      <div class="img-placeholder-text">🖼️ 激光共聚焦<br>显微镜操作实况</div>
     </div>
     <div class="process-text">
       <h4>3. 显微镜高阶操作</h4>
