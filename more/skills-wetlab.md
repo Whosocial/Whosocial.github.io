@@ -111,7 +111,7 @@ permalink: /more/skills-wetlab/
 <!-- ========================================== -->
 <!-- 技能一：微流控实验平台 (4个流程) -->
 <!-- ========================================== -->
-<h2 class="skill-title"><span>💧 01. 微流控实验平台开发全流程</span></h2>
+<h2 class="skill-title"><span>💧 01. 微流控实验平台搭建</span></h2>
 <p style="color: #586069; font-size: 0.95rem; margin-bottom: 1.5rem;">
   具备独立完成微流控芯片设计、加工及动态成像平台搭建的全链路能力，用于在体外精准模拟复杂的细菌生长微环境。
 </p>
@@ -123,7 +123,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>1. 芯片设计</h4>
-      <p>利用 AutoCAD 建立二维/三维流道模型，精确计算流体通道尺寸与微观化学梯度。</p>
+      <p>利用 AutoCAD 建立微流控芯片二维/三维模型，精确计算流体通道尺寸。</p>
     </div>
   </div>
 
@@ -133,7 +133,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>2. 光刻制模</h4>
-      <p>在超净间操作匀胶机与曝光机，使用 SU-8 等光刻胶将设计转化为高精度硅片阳模。</p>
+      <p>在超净间操作匀胶机与曝光机，使用光刻胶将设计转化为高精度硅片阳模。利用光刻机蚀刻微流控芯片</p>
     </div>
   </div>
 
@@ -142,8 +142,8 @@ permalink: /more/skills-wetlab/
       <img src="/assets/images/skills-metlab-1-3.png" alt="制作">
     </div>
     <div class="process-text">
-      <h4>3. PDMS 制作</h4>
-      <p>熟练掌握 PDMS 倒模固化流程，使用等离子清洗机将芯片与盖玻片进行不可逆键合。</p>
+      <h4>3. 微流控芯片制作</h4>
+      <p>熟练掌握PDMS倒模固化流程，使用等离子清洗机将芯片与盖玻片进行不可逆键合。</p>
     </div>
   </div>
 
@@ -153,7 +153,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>4. 平台搭建</h4>
-      <p>集成注射泵、恒温系统与显微镜，实现高度可控的长时程活细胞动态培养平台。</p>
+      <p>集成注射/气体泵、恒温系统与显微镜，实现高度可控的长时程活细胞动态培养平台。</p>
     </div>
   </div>
 </div>
@@ -184,7 +184,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>2. 基因编辑与质粒改造</h4>
-      <p>熟练应用 CRISPR-Cas 系统及传统同源重组技术进行高效的基因敲除、敲入，以及质粒载体的构建与改造。</p>
+      <p>熟练应用CRISPR-Cas系统及传统同源重组技术进行高效的基因敲除、敲入，以及质粒载体的构建与改造。</p>
     </div>
   </div>
 
@@ -194,7 +194,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>3. 生理表征</h4>
-      <p>通过 MIC/MBC 测定、生长曲线、形态学观察等手段，系统评估改造后菌株在特定环境压力下的生理表型变化。</p>
+      <p>通过MIC/MBC测定、生长曲线、形态学观察等手段，系统评估改造后菌株在特定环境压力下的生理表型变化。</p>
     </div>
   </div>
 </div>
@@ -205,7 +205,7 @@ permalink: /more/skills-wetlab/
 <!-- ========================================== -->
 <h2 class="skill-title"><span>📊 03. 组学实验与分析</span></h2>
 <p style="color: #586069; font-size: 0.95rem; margin-bottom: 1.5rem;">
-  打通了从上游湿实验样本制备到下游干实验生物信息学数据挖掘的完整技术闭环。
+  多组学技术挖掘潜在的功能靶点。
 </p>
 
 <div class="grid-4-cols">
@@ -224,8 +224,8 @@ permalink: /more/skills-wetlab/
       <img src="/assets/images/skills-metlab-3-2.png" alt="制作">
     </div>
     <div class="process-text">
-      <h4>2. 样品上机</h4>
-      <p>完成样本的精确定量与质控（QC），熟知主流高通量测序平台及质谱平台的上机标准与参数要求（由技术人员辅助完成）。</p>
+      <h4>2. 样品上机（由技术人员辅助完成）</h4>
+      <p>完成样本的精确定量与质控（QC），熟悉主流高通量测序平台及质谱平台的上机标准与参数要求。</p>
     </div>
   </div>
 
@@ -245,7 +245,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>4. 可视化呈现</h4>
-      <p>利用 Python 或 R 语言将海量多维的组学数据转化为直观、可解释的学术级热图、PCA 图与网络图。</p>
+      <p>利用Matlab、Python或R语言将海量多维的组学数据转化为直观、可解释的学术级热图、PCA图与网络图。</p>
     </div>
   </div>
 </div>
@@ -266,7 +266,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>1. 单细胞成像</h4>
-      <p>在极高倍率下实现单细胞精度的形态学追踪与细胞内荧光探针定位，记录个体细胞的异质性代谢状态与死亡过程。</p>
+      <p>在高倍率下实现单细胞精度的形态学追踪与细胞内荧光探针定位。</p>
     </div>
   </div>
 
@@ -276,7 +276,7 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>2. 群体成像</h4>
-      <p>利用图像拼接与大视野扫描技术，捕捉细菌生物被膜等复杂群落的整体空间结构分布与亚群动态扩展演化过程。</p>
+      <p>追踪细菌生物被膜等复杂群落的整体空间结构分布与亚群动态扩展演化过程。</p>
     </div>
   </div>
 
@@ -286,51 +286,8 @@ permalink: /more/skills-wetlab/
     </div>
     <div class="process-text">
       <h4>3. 显微镜高阶操作</h4>
-      <p>精通宽场荧光显微镜及激光共聚焦显微镜 (CLSM) 的操作与调试，熟练设置 Z 轴层扫 (Z-stack) 及时间序列多通道采集参数。</p>
+      <p>精通宽场荧光显微镜及激光共聚焦显微镜 (CLSM) 的操作与调试，熟练设置Z轴层扫(Z-stack)及时间序列多通道采集参数。</p>
     </div>
   </div>
 </div>
 
-
-<!-- ========================================== -->
-<!-- 技能五：占位符 (待填充) -->
-<!-- ========================================== -->
-<h2 class="skill-title"><span>🧪 05. [技能五名称待填充]</span></h2>
-<p style="color: #586069; font-size: 0.95rem; margin-bottom: 1.5rem;">
-  [此处可用于展示你的第 5 项湿实验技能，例如：常规分子生物学实验 (PCR/WB等)、动物模型构建等]
-</p>
-
-<div class="grid-3-cols">
-  <!-- 流程 1 -->
-  <div class="process-card">
-    <div class="process-img-wrapper">
-      <div class="img-placeholder-text">🖼️ [图片占位]</div>
-    </div>
-    <div class="process-text">
-      <h4>1. [流程一名称]</h4>
-      <p>[在此处添加流程描述文字...]</p>
-    </div>
-  </div>
-
-  <!-- 流程 2 -->
-  <div class="process-card">
-    <div class="process-img-wrapper">
-      <div class="img-placeholder-text">🖼️ [图片占位]</div>
-    </div>
-    <div class="process-text">
-      <h4>2. [流程二名称]</h4>
-      <p>[在此处添加流程描述文字...]</p>
-    </div>
-  </div>
-  
-  <!-- 流程 3 (如需4列可复制上方 process-card 代码并更改外层 div class 为 grid-4-cols) -->
-  <div class="process-card">
-    <div class="process-img-wrapper">
-      <div class="img-placeholder-text">🖼️ [图片占位]</div>
-    </div>
-    <div class="process-text">
-      <h4>3. [流程三名称]</h4>
-      <p>[在此处添加流程描述文字...]</p>
-    </div>
-  </div>
-</div>
