@@ -84,7 +84,7 @@ permalink: /about/
   
   <div style="display: flex; flex-wrap: wrap; gap: 20px;">
     <!-- 技能卡 1 (带点击和悬浮) -->
-    <a href="/more/skills/" class="hover-card">
+    <a href="/more/skills-wetlab/" class="hover-card">
       <h4 style="color: #0366d6;">🔬 实验技能</h4>
       <ul>
         <li><strong>微生物学：</strong> 菌株培养改造、CRISPR-Cas基因编辑</li>
