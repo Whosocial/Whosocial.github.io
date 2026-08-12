@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 湿实验与微流控
+title: 实验技能
 permalink: /more/skills-wetlab/
 ---
 
