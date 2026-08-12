@@ -143,7 +143,7 @@ permalink: /more/career/
   <!-- 后话 -->
   <div style="margin-bottom: 3rem; text-align: center;">
     <p style="font-size: 1.15rem; color: #4a5568; max-width: 700px; margin: 0 auto;">
-      回望这一路所见所遇，我深深体会到做科研并非易事，其中有太多的不确定性。想想自己，能坚持到现在已经可以了。<br>接下来，请去做自己真正喜欢热爱的事吧！
+      回望这一路所见所遇，我深深体会到做科研并非易事，其中有太多的不确定性。<br>想想自己，能坚持到现在已经可以了。<br>接下来，请去做自己真正喜欢热爱的事吧！
     </p>
   </div>
 
