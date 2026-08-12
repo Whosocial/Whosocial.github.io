@@ -75,35 +75,7 @@ permalink: /about/
     </ul>
   </div>
 
-  <!-- 荣誉与奖项 -->
-  <h2 style="border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-bottom: 1.5rem;">荣誉与奖项</h2>
-  <div style="background: #fafbfc; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; margin-bottom: 2.5rem;">
-    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
-      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2025年</div>
-      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学校一等奖学金</div>
-    </div>
-    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
-      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2024年</div>
-      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学校二等奖学金</div>
-    </div>
-    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
-      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2023年</div>
-      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学微生物传染病中心年会 <strong>“优秀学术海报奖”</strong></div>
-    </div>
-    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
-      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2022年</div>
-      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">清华大学全球健康与传染病学术论坛 <strong>“优秀学术海报奖”</strong></div>
-    </div>
-    <div style="display: flex; margin-bottom: 12px; align-items: flex-start;">
-      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2018年</div>
-      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">吉林大学校一等奖学金</div>
-    </div>
-    <div style="display: flex; align-items: flex-start;">
-      <div style="flex: 0 0 100px; font-weight: 600; color: #319795;">2015-2017年</div>
-      <div style="flex: 1; color: #4a5568; font-size: 0.95rem;">吉林大学校二等奖学金、个人奖学金</div>
-    </div>
-  </div>
-
+  
   <!-- 分隔线 -->
   <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); margin: 2.5rem 0;">
 
@@ -113,12 +85,12 @@ permalink: /about/
   <div style="display: flex; flex-wrap: wrap; gap: 20px;">
     <!-- 技能卡 1 (带点击和悬浮) -->
     <a href="/more/skills/" class="hover-card">
-      <h4 style="color: #0366d6;">🔬 湿实验与显微成像</h4>
+      <h4 style="color: #0366d6;">🔬 实验技能</h4>
       <ul>
-        <li><strong>微生物学：</strong> 菌株改造、CRISPR-Cas基因编辑、厌氧/好氧培养</li>
-        <li><strong>微流控：</strong> AutoCAD 芯片设计与全套微加工工艺搭建</li>
-        <li><strong>成像技术：</strong> 荧光及激光共聚焦显微镜的活细胞动态成像</li>
-        <li><strong>多组学：</strong> RNA-Seq 前处理与下游通路富集分析</li>
+        <li><strong>微生物学：</strong> 菌株培养改造、CRISPR-Cas基因编辑</li>
+        <li><strong>微流控：</strong> 芯片设计制作与微流控平台搭建</li>
+        <li><strong>成像技术：</strong> 荧光及激光共聚焦显微成像</li>
+        <li><strong>多组学：</strong> 代谢组、转录组等</li>
       </ul>
       <div class="card-link-text">了解详细技能展示 &rarr;</div>
     </a>
@@ -129,7 +101,7 @@ permalink: /about/
       <ul>
         <li><strong>编程分析：</strong> Python 与 MATLAB（可独立编写高通量图像识别与数据提取脚本）</li>
         <li><strong>图像处理：</strong> ImageJ / Fiji 深度应用</li>
-        <li><strong>科研作图：</strong> GraphPad Prism、Adobe Illustrator</li>
+        <li><strong>科研作图：</strong> GraphPad Prism、Adobe Illustrator...</li>
       </ul>
       <div class="card-link-text">了解详细技能展示 &rarr;</div>
     </a>
