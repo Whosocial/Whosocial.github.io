@@ -119,7 +119,7 @@ permalink: /more/skills-wetlab/
 <div class="grid-4-cols">
   <div class="process-card">
     <div class="process-img-wrapper">
-      <!-- <img src="/assets/images/wetlab-microfluidics-1.jpg" alt="设计"> -->
+      <img src="/assets/images/skills-metlab-1-1.png" alt="设计"> 
       <div class="img-placeholder-text">🖼️ AutoCAD<br>芯片设计图纸</div>
     </div>
     <div class="process-text">
@@ -130,7 +130,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
-      <!-- <img src="/assets/images/wetlab-microfluidics-2.jpg" alt="光刻"> -->
+      <img src="/assets/images/skills-metlab-1-2.png" alt="光刻"> 
       <div class="img-placeholder-text">🖼️ 黄光室<br>光刻工艺实拍</div>
     </div>
     <div class="process-text">
@@ -141,7 +141,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
-      <!-- <img src="/assets/images/wetlab-microfluidics-3.jpg" alt="制作"> -->
+      <img src="/assets/images/skills-metlab-1-3.png" alt="制作">
       <div class="img-placeholder-text">🖼️ PDMS<br>倒模与键合</div>
     </div>
     <div class="process-text">
@@ -152,7 +152,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
-      <!-- <img src="/assets/images/wetlab-microfluidics-4.jpg" alt="平台搭建"> -->
+      <img src="/assets/images/skills-metlab-1-4.png" alt="平台搭建">
       <div class="img-placeholder-text">🖼️ 流体控制<br>与成像平台</div>
     </div>
     <div class="process-text">
@@ -174,6 +174,7 @@ permalink: /more/skills-wetlab/
 <div class="grid-3-cols">
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-2-1.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 厌氧/好氧<br>菌株培养实拍</div>
     </div>
     <div class="process-text">
@@ -184,6 +185,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-2-2.png" alt="2">
       <div class="img-placeholder-text">🖼️ 质粒图谱<br>或克隆验证图</div>
     </div>
     <div class="process-text">
@@ -194,6 +196,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-2-3.png" alt="3">
       <div class="img-placeholder-text">🖼️ 药敏实验<br>或表型对比图</div>
     </div>
     <div class="process-text">
@@ -215,6 +218,7 @@ permalink: /more/skills-wetlab/
 <div class="grid-4-cols">
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-3-1.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 提取纯化<br>或质检电泳图</div>
     </div>
     <div class="process-text">
@@ -225,6 +229,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-3-2.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 测序仪<br>或送样单展示</div>
     </div>
     <div class="process-text">
@@ -235,6 +240,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-3-3.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 火山图<br>或通路富集代码</div>
     </div>
     <div class="process-text">
@@ -245,6 +251,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-3-4.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 组学数据<br>高级可视化图表</div>
     </div>
     <div class="process-text">
@@ -266,6 +273,7 @@ permalink: /more/skills-wetlab/
 <div class="grid-3-cols">
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-4-1.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 高清单细胞<br>荧光成像图</div>
     </div>
     <div class="process-text">
@@ -276,6 +284,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-4-2.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 生物被膜<br>大规模群体成像</div>
     </div>
     <div class="process-text">
@@ -286,6 +295,7 @@ permalink: /more/skills-wetlab/
 
   <div class="process-card">
     <div class="process-img-wrapper">
+      <img src="/assets/images/skills-metlab-4-3.png" alt="制作">
       <div class="img-placeholder-text">🖼️ 激光共聚焦<br>显微镜操作实况</div>
     </div>
     <div class="process-text">
