@@ -12,7 +12,7 @@ permalink: /sudoku/
 
 <!-- 嵌入一个开源/无广告的网页版数独 -->
 <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 3rem;">
-  <iframe src="https://sudoku.com/zh/" width="100%" height="800px" frameborder="0" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); max-width: 800px;"></iframe>
+  <iframe src="https://www.sudokukingdom.com/zh/" width="100%" height="800px" frameborder="0" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); max-width: 800px;"></iframe>
 </div>
 
 <div style="text-align: center;">
