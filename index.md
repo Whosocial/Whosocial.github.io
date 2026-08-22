@@ -57,7 +57,15 @@ layout: home
 
 <!-- ================= 以下为你原本的首页内容 ================= -->
 <div class="home-content-wrapper">
-
+  
+<!-- 数独游戏入口按钮 -->
+<div style="text-align: center; margin-top: 3rem;">
+  <p style="font-size: 0.95rem; color: #586069; margin-bottom: 15px;">科研累了？不如换个方式烧烧脑 👇</p>
+  <a href="/sudoku/" style="display: inline-block; background: #24292e; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)';">
+    🎮 开始一局数独游戏
+  </a>
+</div>
+  
   <div style="text-align: center; margin-top: 2rem; margin-bottom: 3rem;">
     <!-- 头像 -->
     <img src="/assets/images/20260808170010.jpg" alt="古月的头像" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: 4px solid #f8f9fa;">
@@ -94,13 +102,7 @@ layout: home
     </ul>
   </div>
   
-<!-- 数独游戏入口按钮 -->
-<div style="text-align: center; margin-top: 3rem;">
-  <p style="font-size: 0.95rem; color: #586069; margin-bottom: 15px;">科研累了？不如换个方式烧烧脑 👇</p>
-  <a href="/sudoku/" style="display: inline-block; background: #24292e; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)';">
-    🎮 开始一局数独游戏
-  </a>
-</div>
+
 
 </div>
 
