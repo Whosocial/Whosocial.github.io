@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- saved from url=(0017)http://sd.5as.cn/ -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>数独引导解题器 | Whosocial</title>
+<title>数独引导解题器 - OCR版</title>
 <style>
 :root{
   --bg:#e8e8ec;
@@ -162,6 +162,31 @@ main{
   width:290px; display:flex; flex-direction:column; gap:6px;
   flex-shrink:0;
 }
+
+
+/* 计时器 */
+.timer-card{display:flex;flex-direction:column;gap:7px}
+.timer-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.timer-head h3{margin:0!important;border:0!important;padding:0!important}
+.timer-state{font-size:.7rem;color:var(--text-faint);font-weight:600}
+.timer-display{
+  font-variant-numeric:tabular-nums;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:1.7rem;font-weight:800;letter-spacing:.04em;text-align:center;
+  color:var(--text);padding:3px 0 1px;
+}
+.timer-btn{justify-content:center!important;text-align:center!important}
+.timer-result{min-height:1.1em;text-align:center;font-size:.74rem;color:var(--text-dim)}
+.timer-result.finished{color:var(--accent);font-weight:700}
+
+/* OCR 高精度后处理提示 */
+.ocr-quality-note{
+  display:none;margin:6px 0 8px;padding:7px 9px;border:1px solid var(--border-thin);
+  background:#f8fafc;color:var(--text-dim);font-size:.74rem;line-height:1.45;
+}
+.ocr-quality-note.show{display:block}
+.ocr-preview-cell.corrected{background:#ecfdf5;box-shadow:inset 0 0 0 1.5px #10b981}
+.ocr-preview-cell.uncertain{box-shadow:inset 0 0 0 1.5px var(--accent3)}
 .card{background:var(--surface); border:1px solid var(--border-thin); padding:8px}
 .card h3{font-size:.8rem; color:var(--text-dim); margin-bottom:6px; font-weight:600; border-bottom:1px solid var(--border-thin); padding-bottom:3px}
 .numpad{display:grid; grid-template-columns:repeat(var(--padcols,5),1fr); gap:3px}
@@ -259,7 +284,51 @@ footer{background:var(--surface); border-top:1px solid var(--border-thin); paddi
   font-weight:600; transition:all .12s; white-space:nowrap;
   display:flex; align-items:center; gap:4px;
 }
+
 .ocr-header-btn:hover{background:#6d28d9}
+.manual-header-btn{
+  background:var(--accent); color:#fff; border:none;
+  padding:5px 12px; cursor:pointer; font-size:.82rem; font-family:inherit;
+  font-weight:600; transition:all .12s; white-space:nowrap;
+  display:flex; align-items:center; gap:4px;
+}
+.manual-header-btn:hover{background:#1d4ed8}
+
+/* 手动 9×9 宫格导入 */
+.manual-modal-content{
+  background:var(--surface); border:2px solid var(--border-thick);
+  max-width:560px; width:100%; max-height:94vh; overflow:auto; padding:16px;
+}
+.manual-modal-content h2{font-size:1rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.manual-grid-help{font-size:.78rem;line-height:1.5;color:var(--text-dim);margin-bottom:10px}
+.manual-grid{
+  display:grid; grid-template-columns:repeat(9,1fr); grid-template-rows:repeat(9,1fr);
+  width:min(440px, 88vw); aspect-ratio:1/1; margin:8px auto 12px;
+  border:3px solid var(--border-thick); background:var(--border-thin); gap:0;
+}
+.manual-grid-cell{
+  min-width:0; width:100%; height:100%; border:.5px solid var(--border-thin);
+  background:#fff; color:var(--text); text-align:center; outline:none;
+  font-family:inherit; font-weight:700; font-size:clamp(16px,3.2vw,24px);
+  caret-color:var(--accent); border-radius:0;
+}
+.manual-grid-cell:focus{background:var(--accent-light); box-shadow:inset 0 0 0 2px var(--accent); z-index:2}
+.manual-grid-cell.bdr{border-right:3px solid var(--border-thick)}
+.manual-grid-cell.bdb{border-bottom:3px solid var(--border-thick)}
+.manual-grid-actions{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;padding-top:10px;border-top:1px solid var(--border-thin)}
+.manual-grid-actions button{
+  background:#fff;border:1px solid var(--border-thin);color:var(--text);cursor:pointer;
+  padding:7px 14px;font-size:.82rem;font-family:inherit;transition:all .1s;
+}
+.manual-grid-actions button:hover{border-color:var(--accent);color:var(--accent)}
+.manual-grid-actions button.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.manual-grid-actions button.primary:hover{background:#1d4ed8}
+@media(max-width:760px){
+  .manual-header-btn{padding:4px 8px;font-size:.72rem}
+  .manual-modal-content{padding:10px;max-height:96dvh;max-height:96vh}
+  .manual-grid{width:min(430px,94vw)}
+}
+
 .ocr-header-btn .ocr-icon{display:none}
 /* 输入区域紧凑：numpad+模式同行 */
 .input-card-flex{display:flex; gap:8px; align-items:flex-start}
@@ -392,42 +461,13 @@ footer{background:var(--surface); border-top:1px solid var(--border-thin); paddi
   .actions-grid .act-btn{padding:7px 4px; font-size:.72rem}
   .actions-guide .act-btn{padding:7px 4px; font-size:.72rem}
 }
-
-/* ===== Whosocial 网站整合：返回主页按钮 ===== */
-.home-link{
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
-  padding:5px 10px;
-  border:1px solid var(--border-thin);
-  background:#fff;
-  color:var(--text-dim);
-  text-decoration:none;
-  font-size:.78rem;
-  font-weight:600;
-  white-space:nowrap;
-  transition:all .12s;
-  border-radius:3px;
-}
-.home-link:hover{
-  border-color:var(--accent2);
-  color:var(--accent2);
-  background:#f5f3ff;
-}
-@media(max-width:760px){
-  .home-link{
-    padding:4px 8px;
-    font-size:.72rem;
-  }
-}
-
 </style>
 </head>
 <body>
 <header>
-  <a class="home-link" href="/" aria-label="返回 Whosocial 首页">← 返回主页</a>
   <h1>数独<span class="ac">引导</span>解题器</h1>
   <button class="ocr-header-btn" id="btnOcr"><span class="ocr-icon">📸</span> 📸 拍照识别</button>
+  <button class="manual-header-btn" id="btnManualGrid"><span>⌨️</span> 手动导入</button>
   <div class="preset-bar" id="presetBar"><button class="preset-btn active" data-key="9">9×9 标准</button><button class="preset-btn" data-key="16">16×16 挑战</button></div>
   <div class="diff-bar" id="diffBar"><button class="diff-btn active" data-diff="hard">困难</button><button class="diff-btn" data-diff="extreme">极难</button><button class="diff-btn" data-diff="expert">专家</button><button class="diff-btn" data-diff="super">超难</button></div>
 </header>
@@ -442,6 +482,15 @@ footer{background:var(--surface); border-top:1px solid var(--border-thin); paddi
   </div>
   </div>
   <div class="panel">
+    <div class="card timer-card">
+      <div class="timer-head">
+        <h3>计时器</h3>
+        <span class="timer-state" id="timerState">未开始</span>
+      </div>
+      <div class="timer-display" id="timerDisplay">00:00</div>
+      <button class="act-btn timer-btn" id="btnTimer"><span class="ic">▶</span><span id="timerBtnText">开始计时</span></button>
+      <div class="timer-result" id="timerResult"></div>
+    </div>
     <div class="card">
       <div class="input-card-flex">
         <div class="numpad-wrap">
@@ -472,19 +521,36 @@ footer{background:var(--surface); border-top:1px solid var(--border-thin); paddi
         <button class="act-btn" id="btnUndo"><span class="ic">↶</span>撤销</button>
         <button class="act-btn" id="btnCheck"><span class="ic">✓</span>检查冲突</button>
         <button class="act-btn" id="btnNew"><span class="ic">🎲</span>随机出题</button>
-        <button class="act-btn" id="btnImport"><span class="ic">📋</span>手动导入</button>
+        <button class="act-btn" id="btnImport"><span class="ic">📋</span>文本导入</button>
         <button class="act-btn" id="btnExport"><span class="ic">📤</span>导出题目</button>
         <button class="act-btn danger" id="btnClear"><span class="ic">🗑</span>清空盘面</button>
       </div>
     </div>
   </div>
 </main>
-<footer>Whosocial · 数独引导解题器 · OCR版 · 9×9 / 16×16 · 完全离线 · 拍照自动识别</footer>
+<footer>数独引导解题器 · OCR / 手动导入 · 9×9 / 16×16 · 完全离线</footer>
 
 <div class="loading-overlay" id="loading" style="display:none">
   <div class="box"><div class="spinner"></div><p id="loadingText">处理中...</p></div>
 </div>
 <div class="toast" id="toast"></div>
+
+<!-- 手动 9×9 宫格导入模态框 -->
+<div class="ocr-modal" id="manualGridModal">
+  <div class="manual-modal-content">
+    <h2>⌨️ 手动输入 9×9 数独</h2>
+    <div class="manual-grid-help">
+      在空白宫格中输入题目给定数字（1–9），空格保持为空。输入一个数字后会自动跳到下一格；支持方向键移动。<br>
+      载入前会检查行、列、3×3 宫冲突以及题目是否可解。
+    </div>
+    <div class="manual-grid" id="manualGrid"></div>
+    <div class="manual-grid-actions">
+      <button id="manualGridClear">清空</button>
+      <button id="manualGridCancel">取消</button>
+      <button class="primary" id="manualGridConfirm">确认载入 →</button>
+    </div>
+  </div>
+</div>
 
 <!-- OCR 模态框 -->
 <div class="ocr-modal" id="ocrModal">
@@ -543,6 +609,7 @@ footer{background:var(--surface); border-top:1px solid var(--border-thin); paddi
         <span><span class="dot yellow"></span>空格</span>
         <span><span class="dot red"></span>有冲突</span>
       </div>
+      <div class="ocr-quality-note" id="ocrQualityNote"></div>
       <div class="ocr-preview-grid" id="ocrPreviewGrid"></div>
       <div class="ocr-controls">
         <button id="ocrReScan">← 重新识别</button>
@@ -1680,7 +1747,33 @@ class SudokuEngine {
 }
 
 function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+// 结构化生成一个完整合法盘面：对 16×16 比递归回溯快几个数量级，避免偶发卡死
+function generateStructuredSolution(N,br,bc){
+  const eng=new SudokuEngine(N,br,bc);
+  const bandOrder=shuffle([...Array(N/br)].map((_,i)=>i));
+  const rowOrder=[];
+  for(const band of bandOrder){
+    const inner=shuffle([...Array(br)].map((_,i)=>i));
+    for(const r of inner) rowOrder.push(band*br+r);
+  }
+  const stackOrder=shuffle([...Array(N/bc)].map((_,i)=>i));
+  const colOrder=[];
+  for(const stack of stackOrder){
+    const inner=shuffle([...Array(bc)].map((_,i)=>i));
+    for(const c of inner) colOrder.push(stack*bc+c);
+  }
+  const nums=shuffle([...Array(N)].map((_,i)=>i+1));
+  const pattern=(r,c)=>(bc*(r%br)+Math.floor(r/br)+c)%N;
+  for(let rr=0;rr<N;rr++) for(let cc=0;cc<N;cc++){
+    eng.grid[rr][cc]=nums[pattern(rowOrder[rr],colOrder[cc])];
+  }
+  return eng;
+}
+
 function generateSolution(N,br,bc){
+  // 16×16 使用结构化合法盘面，不再从空盘递归回溯
+  if(N>=16 && br*bc===N) return generateStructuredSolution(N,br,bc);
   const eng=new SudokuEngine(N,br,bc);
   function fill(){
     for(let r=0;r<N;r++) for(let c=0;c<N;c++){
@@ -1693,6 +1786,26 @@ function generateSolution(N,br,bc){
     return true;
   }
   fill(); return eng;
+}
+
+// 16×16 快速挖空：不做昂贵难度回溯，只按所选难度随机保留给定数
+function generatePuzzle16Fast(br,bc,difficulty){
+  const N=16;
+  const cfg=(DIFFICULTIES['16']&&DIFFICULTIES['16'][difficulty])||DIFFICULTIES['16'].hard;
+  const sol=generateStructuredSolution(N,br,bc);
+  const puz=sol.clone();
+  puz.given=Array.from({length:N},()=>new Array(N).fill(true));
+  const targetGiven=cfg.minGiven+Math.floor(Math.random()*(cfg.maxGiven-cfg.minGiven+1));
+  const cells=shuffle([...Array(N*N)].map((_,i)=>i));
+  let givenCount=N*N;
+  for(const idx of cells){
+    if(givenCount<=targetGiven) break;
+    const r=Math.floor(idx/N), c=idx%N;
+    puz.grid[r][c]=0;
+    puz.given[r][c]=false;
+    givenCount--;
+  }
+  return puz;
 }
 
 // ========== 难度出题配置 ==========
@@ -2098,12 +2211,121 @@ function getEffectiveCandidates(r,c){
 // ========== 全局状态 ==========
 let engine=null, selectedR=-1, selectedC=-1, showCandsFlag=true, autoPlayTimer=null, history=[], hintInfo=null, reduceInfo=null, currentPreset='9', currentDifficulty='hard';
 let currentPuzzleScore = null; // 题库题目的难度系数（sudoku1-9.com），null 表示未设定
+let currentPuzzleSource = 'db'; // db / manual / ocr / generated16 / sample16
 let cachedDifficultyScore = null; // 缓存的难度评分，仅在盘面变化时重新计算
 let difficultyScoreDirty = true; // 脏标记：true 表示需要重新计算
 let inputMode='value'; // 'value' = 填数模式, 'candidate' = 候选数模式
 // 用户自定义候选数：candOverrides[r][c] = Set of values (手动标记的候选数)
 let candOverrides=null;
 const $ = id => document.getElementById(id);
+
+
+// ========== 游戏计时器 ==========
+let gameTimerRunning = false;
+let gameTimerStartedAt = 0;
+let gameTimerElapsedMs = 0;
+let gameTimerInterval = null;
+let gameTimerFinished = false;
+
+function formatGameTime(ms) {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const h = Math.floor(totalSeconds / 3600);
+  const m = Math.floor((totalSeconds % 3600) / 60);
+  const s = totalSeconds % 60;
+  const mm = String(m).padStart(2, '0');
+  const ss = String(s).padStart(2, '0');
+  return h > 0 ? `${String(h).padStart(2,'0')}:${mm}:${ss}` : `${mm}:${ss}`;
+}
+
+function currentGameElapsedMs() {
+  return gameTimerElapsedMs + (gameTimerRunning ? (Date.now() - gameTimerStartedAt) : 0);
+}
+
+function updateGameTimerUI() {
+  const display = $('timerDisplay');
+  const state = $('timerState');
+  const btn = $('btnTimer');
+  const btnText = $('timerBtnText');
+  const result = $('timerResult');
+  if (!display || !state || !btn || !btnText || !result) return;
+
+  display.textContent = formatGameTime(currentGameElapsedMs());
+  btn.disabled = !!gameTimerFinished;
+  if (gameTimerFinished) {
+    state.textContent = '已完成';
+    btn.classList.remove('playing');
+    btn.innerHTML = '<span class="ic">✓</span><span id="timerBtnText">计时结束</span>';
+  } else if (gameTimerRunning) {
+    state.textContent = '计时中';
+    btn.classList.add('playing');
+    btn.innerHTML = '<span class="ic">⏸</span><span id="timerBtnText">暂停计时</span>';
+  } else {
+    state.textContent = gameTimerElapsedMs > 0 ? '已暂停' : '未开始';
+    btn.classList.remove('playing');
+    btn.innerHTML = `<span class="ic">▶</span><span id="timerBtnText">${gameTimerElapsedMs > 0 ? '继续计时' : '开始计时'}</span>`;
+  }
+}
+
+function startOrPauseGameTimer() {
+  if (!engine) return;
+  if (engine.isSolved()) { toast('当前数独已经完成', 'info'); return; }
+  if (gameTimerFinished) return;
+
+  if (gameTimerRunning) {
+    gameTimerElapsedMs += Date.now() - gameTimerStartedAt;
+    gameTimerRunning = false;
+    if (gameTimerInterval) { clearInterval(gameTimerInterval); gameTimerInterval = null; }
+  } else {
+    gameTimerStartedAt = Date.now();
+    gameTimerRunning = true;
+    if (gameTimerInterval) clearInterval(gameTimerInterval);
+    gameTimerInterval = setInterval(updateGameTimerUI, 250);
+  }
+  updateGameTimerUI();
+}
+
+function resetGameTimer() {
+  if (gameTimerInterval) clearInterval(gameTimerInterval);
+  gameTimerInterval = null;
+  gameTimerRunning = false;
+  gameTimerStartedAt = 0;
+  gameTimerElapsedMs = 0;
+  gameTimerFinished = false;
+  const result = $('timerResult');
+  if (result) { result.textContent = ''; result.classList.remove('finished'); }
+  updateGameTimerUI();
+}
+
+function finishGameTimer() {
+  if (gameTimerFinished) return;
+  if (gameTimerRunning) {
+    gameTimerElapsedMs += Date.now() - gameTimerStartedAt;
+    gameTimerRunning = false;
+  }
+  if (gameTimerInterval) clearInterval(gameTimerInterval);
+  gameTimerInterval = null;
+  gameTimerFinished = true;
+  const result = $('timerResult');
+  if (result) {
+    result.textContent = `总耗时：${formatGameTime(gameTimerElapsedMs)}`;
+    result.classList.add('finished');
+  }
+  updateGameTimerUI();
+}
+
+function syncGameTimerWithBoard() {
+  if (!engine) return;
+  if (engine.isSolved()) {
+    // 只有真正开始过计时才生成成绩；未开始计时则保持 00:00。
+    if ((gameTimerRunning || gameTimerElapsedMs > 0) && !gameTimerFinished) finishGameTimer();
+  } else if (gameTimerFinished) {
+    // 完成后若撤销/修改盘面，允许从已记录耗时继续计时。
+    gameTimerFinished = false;
+    const result = $('timerResult');
+    if (result) { result.textContent = '盘面已修改，可继续计时'; result.classList.remove('finished'); }
+    updateGameTimerUI();
+  }
+}
 
 // 设置输入模式（填数/候选）
 function setInputMode(mode) {
@@ -2995,7 +3217,7 @@ class OCRController {
       const img = new Image();
       img.onload = () => {
         this.sourceImage = img;
-        this.sourceImageData = ImgProc.toImageData(img, 800);
+        this.sourceImageData = ImgProc.toImageData(img, 1600); // 更高采样分辨率，提高小数字识别稳定性
         this.gridN = parseInt($('ocrGridSelect').value) || 9;
         this.setupCanvas();
         this.autoDetectGrid();
@@ -3021,16 +3243,14 @@ class OCRController {
   // 自动检测网格四角
   autoDetectGrid() {
     const w = this.dispW, h = this.dispH;
-    const gray = ImgProc.toGray(this.sourceImageData);
+    // 重要：自动框选必须在“显示画布”的坐标系中分析。旧版直接拿源图灰度数据
+    // 配合 dispW/dispH 索引，源图与显示图尺寸不一致时会导致网格边界偏移。
+    const dispData = this.ctx.getImageData(0, 0, w, h);
+    const gray = ImgProc.toGray(dispData);
     
-    // 找最大矩形轮廓近似：扫描行列的边缘强度
-    // 简化方案：找文字密度最高的区域边界
-    
-    // 水平投影：每行的前景像素数
+    // 水平/垂直投影：优先寻找贯穿较长距离的网格线，减少题目外文字干扰。
     const rowProj = new Array(h).fill(0);
     const colProj = new Array(w).fill(0);
-    
-    // 先二值化
     const bin = ImgProc.otsuBinarize(gray, w, h).bin;
     
     for (let y = 0; y < h; y++) {
@@ -3042,16 +3262,18 @@ class OCRController {
       }
     }
     
-    // 找上下左右边界（网格线处投影值高）
-    const thresh1 = w * 0.15; // 水平线阈值
-    const thresh2 = h * 0.15; // 垂直线阈值
-    
-    let top = 0, bottom = h-1, left = 0, right = w-1;
-    
-    for (let y = 0; y < h; y++) { if (rowProj[y] > thresh1) { top = y; break; } }
-    for (let y = h-1; y >= 0; y--) { if (rowProj[y] > thresh1) { bottom = y; break; } }
-    for (let x = 0; x < w; x++) { if (colProj[x] > thresh2) { left = x; break; } }
-    for (let x = w-1; x >= 0; x--) { if (colProj[x] > thresh2) { right = x; break; } }
+    // 找上下左右边界（网格线应比普通文字更长）。先用较严格阈值，失败再回退。
+    const findBounds = (proj, fullLen, dim) => {
+      for (const ratio of [0.38, 0.30, 0.22, 0.15]) {
+        const ids = [];
+        const th = fullLen * ratio;
+        for (let i = 0; i < proj.length; i++) if (proj[i] > th) ids.push(i);
+        if (ids.length >= 2 && ids[ids.length-1] - ids[0] > dim * 0.28) return [ids[0], ids[ids.length-1]];
+      }
+      return [0, dim - 1];
+    };
+    let [top, bottom] = findBounds(rowProj, w, h);
+    let [left, right] = findBounds(colProj, h, w);
     
     // 增加一点边距
     const pad = 5;
@@ -3176,7 +3398,7 @@ class OCRController {
     await this.delay(50);
     
     // 透视变换提取网格
-    const outSize = this.gridN * 40; // 每格 40px
+    const outSize = this.gridN * (this.gridN <= 9 ? 64 : 48); // 提高透视校正后的单格采样分辨率
     // 缩放角点到源图像坐标
     const scaleX = this.sourceImageData.width / this.dispW;
     const scaleY = this.sourceImageData.height / this.dispH;
@@ -3216,6 +3438,8 @@ class OCRController {
       }
     }
     
+    const refineInfo = this.refineWithSudokuConstraints(results);
+    this.ocrRefineInfo = refineInfo;
     this.results = results;
     this.showStep(4);
     this.renderPreview();
@@ -3233,6 +3457,13 @@ class OCRController {
     grid.innerHTML = '';
     
     const symbols = getSymbols(N);
+    const qn = $('ocrQualityNote');
+    if (qn) {
+      const info = this.ocrRefineInfo || {corrected:0,checked:0};
+      const uncertain = this.results.flat().filter(x => x.symbol && x.confidence < 0.8).length;
+      qn.classList.add('show');
+      qn.innerHTML = `高精度后处理：已检查 <b>${info.checked}</b> 个低置信度/冲突格，自动校正 <b>${info.corrected}</b> 格；当前仍有 <b>${uncertain}</b> 个低置信度结果。橙框建议人工复核，绿色框表示数独约束自动校正。`;
+    }
     
     for (let r = 0; r < N; r++) {
       for (let c = 0; c < N; c++) {
@@ -3242,12 +3473,18 @@ class OCRController {
         if ((r+1) % Math.sqrt(N) === 0 && r < N-1) cell.classList.add('bdb');
         
         const res = this.results[r][c];
+        if (res.corrected) {
+          cell.classList.add('corrected');
+          cell.title = `数独约束校正：${res.originalSymbol || '空'} → ${res.symbol || '空'}`;
+        }
         if (res.symbol) {
           cell.textContent = res.symbol;
           // 低置信度标记
           if (res.confidence < 0.8) {
+            cell.classList.add('uncertain');
             cell.style.color = 'var(--accent3)';
-            cell.title = `置信度: ${(res.confidence*100|0)}% · 可能: ${res.top3.map(t=>t.sym).join(', ')}`;
+            const extra = res.corrected ? ` · 原识别 ${res.originalSymbol || '空'}` : '';
+            cell.title = `置信度: ${(res.confidence*100|0)}% · 可能: ${res.top3.map(t=>t.sym).join(', ')}${extra}`;
           }
         } else {
           cell.classList.add('empty');
@@ -3276,6 +3513,11 @@ class OCRController {
     const finish = () => {
       const v = input.value.toUpperCase();
       this.results[r][c].symbol = v;
+      // 人工校对后的格子视为已确认，不再保留自动校正/低置信度标记。
+      this.results[r][c].confidence = v ? 1 : 0;
+      this.results[r][c].top3 = v ? [{sym:v, sim:1}] : [];
+      this.results[r][c].corrected = false;
+      this.results[r][c].originalSymbol = null;
       cell.classList.remove('editing');
       this.renderPreview();
     };
@@ -3291,6 +3533,119 @@ class OCRController {
     };
   }
   
+
+  // 基于数独约束对 OCR 的 Top-3 结果做二次校正（9×9）。
+  // 原理：优先保留高置信度识别；对低置信度/冲突格尝试 Top-3 备选，
+  // 选择“无行列宫冲突且整体可解”的最小代价组合。不会联网，也不会调用外部 API。
+  refineWithSudokuConstraints(results) {
+    if (this.gridN !== 9) return { corrected: 0, checked: 0 };
+    const N = 9, br = 3, bc = 3;
+    const topGrid = Array.from({length:N}, (_,r) => Array.from({length:N}, (_,c) => {
+      const s = results[r][c].symbol;
+      return s ? symToVal(s) : 0;
+    }));
+
+    const hasPeerConflict = (grid, r, c, v) => {
+      if (!v) return false;
+      for (let i=0;i<N;i++) {
+        if (i!==c && grid[r][i]===v) return true;
+        if (i!==r && grid[i][c]===v) return true;
+      }
+      const r0=Math.floor(r/br)*br, c0=Math.floor(c/bc)*bc;
+      for (let rr=r0;rr<r0+br;rr++) for(let cc=c0;cc<c0+bc;cc++)
+        if ((rr!==r||cc!==c) && grid[rr][cc]===v) return true;
+      return false;
+    };
+
+    const ambiguous = [];
+    for (let r=0;r<N;r++) for (let c=0;c<N;c++) {
+      const res=results[r][c];
+      if (!res.symbol) continue;
+      const top2 = res.top3 && res.top3.length > 1 ? res.top3[1].sim : 0;
+      const margin = res.confidence - top2;
+      const conflict = hasPeerConflict(topGrid,r,c,topGrid[r][c]);
+      if (conflict || res.confidence < 0.88 || margin < 0.045) {
+        ambiguous.push({r,c, conflict, confidence:res.confidence, margin});
+      }
+    }
+    if (!ambiguous.length) return { corrected:0, checked:0 };
+
+    // 冲突格优先，其次按低置信度/低区分度排序。限制搜索规模保证手机端速度。
+    ambiguous.sort((a,b) => (b.conflict-a.conflict) || (a.confidence-b.confidence) || (a.margin-b.margin));
+    const mutable = ambiguous.slice(0, 18);
+    const mutableKey = new Set(mutable.map(x=>x.r+'-'+x.c));
+    const base = topGrid.map(row=>row.slice());
+    for (const x of mutable) base[x.r][x.c]=0;
+
+    const canPlace = (grid,r,c,v) => {
+      if (!v) return true;
+      for(let i=0;i<N;i++) if(grid[r][i]===v || grid[i][c]===v) return false;
+      const r0=Math.floor(r/br)*br, c0=Math.floor(c/bc)*bc;
+      for(let rr=r0;rr<r0+br;rr++) for(let cc=c0;cc<c0+bc;cc++) if(grid[rr][cc]===v) return false;
+      return true;
+    };
+
+    // 固定格本身若仍冲突，说明存在一个“高置信度但错误”的格；扩大可变集合意义有限，直接保留给人工校对。
+    for(let r=0;r<N;r++) for(let c=0;c<N;c++) {
+      if(base[r][c] && hasPeerConflict(base,r,c,base[r][c])) return { corrected:0, checked:mutable.length };
+    }
+
+    let states=[{grid:base, cost:0, changes:[]}];
+    const beamWidth=120;
+    for(const cell of mutable){
+      const res=results[cell.r][cell.c];
+      const seen=new Set();
+      const opts=[];
+      const candidates=(res.top3||[]).slice(0,3);
+      // 确保当前 top-1 被纳入
+      if(res.symbol && !candidates.some(x=>x.sym===res.symbol)) candidates.unshift({sym:res.symbol,sim:res.confidence});
+      candidates.forEach((x,rank)=>{
+        const v=symToVal(x.sym);
+        if(v>=1&&v<=9&&!seen.has(v)){
+          seen.add(v);
+          opts.push({v,sym:x.sym, cost:(1-Math.max(0,Math.min(1,x.sim))) + rank*0.025});
+        }
+      });
+      // 很不确定时允许判为空格，避免把网格残线/噪声硬识别成数字。
+      if(res.confidence<0.78) opts.push({v:0,sym:'',cost:0.48});
+
+      const next=[];
+      for(const st of states){
+        for(const op of opts){
+          if(op.v && !canPlace(st.grid,cell.r,cell.c,op.v)) continue;
+          const g=st.grid.map(row=>row.slice());
+          g[cell.r][cell.c]=op.v;
+          const oldSym=res.symbol||'';
+          const ch=oldSym!==op.sym ? st.changes.concat([{r:cell.r,c:cell.c,from:oldSym,to:op.sym}]) : st.changes;
+          next.push({grid:g,cost:st.cost+op.cost+(op.v===0?0.12:0),changes:ch});
+        }
+      }
+      next.sort((a,b)=>a.cost-b.cost || a.changes.length-b.changes.length);
+      states=next.slice(0,beamWidth);
+      if(!states.length) return {corrected:0,checked:mutable.length};
+    }
+
+    // 从最优候选开始寻找一个整体可解的盘面。
+    let chosen=null;
+    for(const st of states.slice(0,60)){
+      const e=new SudokuEngine(9,3,3);
+      e.loadGrid(st.grid);
+      const solver=e.clone();
+      if(solver.solve()) { chosen=st; break; }
+    }
+    if(!chosen) return {corrected:0,checked:mutable.length};
+
+    let corrected=0;
+    for(const ch of chosen.changes){
+      const res=results[ch.r][ch.c];
+      res.originalSymbol=ch.from;
+      res.symbol=ch.to;
+      res.corrected=true;
+      corrected++;
+    }
+    return {corrected,checked:mutable.length};
+  }
+
   // 确认载入
   confirmLoad() {
     const N = this.gridN;
@@ -3298,6 +3653,9 @@ class OCRController {
     
     // 切换到对应规格
     currentPreset = N === 9 ? '9' : '16';
+    currentPuzzleSource = 'ocr';
+    currentPuzzleScore = null;
+    cachedDifficultyScore = null;
     engine = new SudokuEngine(p.N, p.br, p.bc);
     
     // 填入识别结果（校验值范围）
@@ -3325,11 +3683,127 @@ class OCRController {
     history = [];
     hintInfo = null;
     stopAutoPlay();
+    resetGameTimer();
     renderAll();
     
     this.close();
     const warnMsg = invalidCount > 0 ? `，有 ${invalidCount} 个无效字符已忽略` : '';
     toast(`已载入 ${N}×${N} 识别结果，请检查是否有误${warnMsg}`, 'success');
+  }
+}
+
+// ========== 手动 9×9 宫格导入 ==========
+class ManualGridController {
+  constructor(){
+    this.modal=$('manualGridModal');
+    this.grid=$('manualGrid');
+    this.inputs=[];
+    this.buildGrid();
+    $('manualGridClear').onclick=()=>this.clear();
+    $('manualGridCancel').onclick=()=>this.close();
+    $('manualGridConfirm').onclick=()=>this.confirm();
+    this.modal.addEventListener('click',e=>{ if(e.target===this.modal) this.close(); });
+  }
+  buildGrid(){
+    this.grid.innerHTML='';
+    this.inputs=[];
+    for(let r=0;r<9;r++) for(let c=0;c<9;c++){
+      const input=document.createElement('input');
+      input.type='text';
+      input.inputMode='numeric';
+      input.maxLength=1;
+      input.autocomplete='off';
+      input.className='manual-grid-cell';
+      if((c+1)%3===0 && c<8) input.classList.add('bdr');
+      if((r+1)%3===0 && r<8) input.classList.add('bdb');
+      input.dataset.r=r; input.dataset.c=c;
+      input.setAttribute('aria-label',`第${r+1}行第${c+1}列`);
+      input.addEventListener('input',()=>{
+        const cleaned=input.value.replace(/[^1-9]/g,'');
+        input.value=cleaned ? cleaned.slice(-1) : '';
+        if(input.value){
+          const idx=r*9+c;
+          if(idx<80) this.inputs[idx+1].focus();
+        }
+      });
+      input.addEventListener('keydown',e=>this.handleKey(e,r,c));
+      this.grid.appendChild(input);
+      this.inputs.push(input);
+    }
+    this.grid.addEventListener('paste',e=>{
+      const raw=(e.clipboardData||window.clipboardData).getData('text');
+      const vals=raw.replace(/[^0-9.]/g,'');
+      if(vals.length>=81){
+        e.preventDefault();
+        for(let i=0;i<81;i++){
+          const ch=vals[i];
+          this.inputs[i].value=(ch==='0'||ch==='.')?'':ch.replace(/[^1-9]/g,'');
+        }
+        toast('已从剪贴板填入 9×9 题目', 'info');
+      }
+    });
+  }
+  handleKey(e,r,c){
+    const idx=r*9+c;
+    if(e.key==='ArrowRight' && c<8){ this.inputs[idx+1].focus(); e.preventDefault(); }
+    else if(e.key==='ArrowLeft' && c>0){ this.inputs[idx-1].focus(); e.preventDefault(); }
+    else if(e.key==='ArrowDown' && r<8){ this.inputs[idx+9].focus(); e.preventDefault(); }
+    else if(e.key==='ArrowUp' && r>0){ this.inputs[idx-9].focus(); e.preventDefault(); }
+    else if((e.key==='Backspace'||e.key==='Delete') && !e.currentTarget.value && idx>0){ this.inputs[idx-1].focus(); }
+    else if(e.key==='Escape'){ this.close(); }
+  }
+  open(){
+    this.clear(false);
+    this.modal.classList.add('show');
+    setTimeout(()=>this.inputs[0]?.focus(),30);
+  }
+  close(){ this.modal.classList.remove('show'); }
+  clear(showMsg=true){
+    this.inputs.forEach(i=>i.value='');
+    if(showMsg){ this.inputs[0]?.focus(); toast('手动输入宫格已清空','info'); }
+  }
+  confirm(){
+    const grid=[];
+    let givens=0;
+    for(let r=0;r<9;r++){
+      const row=[];
+      for(let c=0;c<9;c++){
+        const s=this.inputs[r*9+c].value.trim();
+        const v=s ? parseInt(s,10) : 0;
+        row.push(v>=1&&v<=9?v:0);
+        if(v>=1&&v<=9) givens++;
+      }
+      grid.push(row);
+    }
+    if(givens===0){ toast('请至少输入一个题目数字','error'); return; }
+
+    const temp=new SudokuEngine(9,3,3);
+    temp.loadGrid(grid);
+    const bad=[];
+    for(let r=0;r<9;r++) for(let c=0;c<9;c++){
+      if(temp.grid[r][c]!==0 && temp.hasConflict(r,c)) bad.push(`R${r+1}C${c+1}`);
+    }
+    if(bad.length){ toast(`题目存在行/列/宫冲突：${bad.slice(0,6).join('、')}${bad.length>6?'…':''}`,'error'); return; }
+    const solver=temp.clone();
+    if(!solver.solve()){ toast('当前题目无解，请检查输入','error'); return; }
+
+    currentPreset='9';
+    currentPuzzleSource='manual';
+    currentPuzzleScore=null;
+    cachedDifficultyScore=null;
+    difficultyScoreDirty=false;
+    if(!DIFFICULTIES['9'][currentDifficulty]) currentDifficulty='hard';
+    engine=temp;
+    resetCandOverrides(9);
+    resetGlobalElimMap(9);
+    selectedR=-1; selectedC=-1; history=[]; hintInfo=null; reduceInfo=null;
+    stopAutoPlay(); resetGameTimer();
+    buildDiffBar();
+    document.querySelectorAll('.preset-btn').forEach(b=>b.classList.toggle('active',b.dataset.key==='9'));
+    $('board').style.setProperty('--cs',calcCellSize(9)+'px');
+    renderAll();
+    this.close();
+    toast(`已载入手动 9×9 题目（${givens} 个给定数）`,'success');
   }
 }
 
@@ -3340,11 +3814,14 @@ function init() {
   loadPreset('9');
   bindEvents();
   ocrController = new OCRController();
+  manualGridController = new ManualGridController();
   // 首次打开时随机出题，而非显示固定示例
   newPuzzle();
+  updateGameTimerUI();
 }
 
 let ocrController = null;
+let manualGridController = null;
 
 function buildPresetBar() {
   const bar = $('presetBar');
@@ -3379,6 +3856,8 @@ function buildDiffBar() {
 function loadPreset(key) {
   currentPreset = key;
   currentPuzzleScore = null;
+  currentPuzzleSource = key === '16' ? 'sample16' : 'db';
+  cachedDifficultyScore = null;
   // 切换 preset 时重置难度为该预设的第一个有效难度
   const presetDiffs = DIFFICULTIES[key];
   if (presetDiffs && !presetDiffs[currentDifficulty]) {
@@ -3417,10 +3896,11 @@ function loadPreset(key) {
     hintInfo = null;
     difficultyScoreDirty = true;
     stopAutoPlay();
+    resetGameTimer();
     renderAll();
 }
 
-function renderAll() { renderBoard(); renderNumpad(); renderStatus(); renderHint(); }
+function renderAll() { renderBoard(); renderNumpad(); renderStatus(); renderHint(); syncGameTimerWithBoard(); }
 
 function renderBoard() {
   const board = $('board');
@@ -3685,22 +4165,28 @@ function renderStatus() {
   const N = engine.N;
   const filled = N*N - engine.emptyCount();
   const conflicts = countConflicts();
-  let score;
+  const diffCfg = DIFFICULTIES[currentPreset] && DIFFICULTIES[currentPreset][currentDifficulty];
+  let difficultyHtml = '';
+
   if (currentPuzzleScore != null) {
-    score = currentPuzzleScore;
+    difficultyHtml = `<span>难度系数: <b style="color:var(--accent2)">${currentPuzzleScore.toFixed(1)}</b></span>`;
+  } else if (N > 9) {
+    // 16×16 的完整逻辑评级开销很大；状态栏直接显示档位，避免切换时主线程卡顿
+    difficultyHtml = `<span>难度: <b style="color:var(--accent2)">${diffCfg ? diffCfg.label : '挑战'}</b></span>`;
+  } else if (currentPuzzleSource === 'manual' || currentPuzzleSource === 'ocr') {
+    difficultyHtml = `<span>难度: <b style="color:var(--accent2)">自定义</b></span>`;
   } else {
     if (difficultyScoreDirty || cachedDifficultyScore === null) {
       cachedDifficultyScore = estimateDifficultyScore(engine.clone());
       difficultyScoreDirty = false;
     }
-    score = cachedDifficultyScore;
+    difficultyHtml = `<span>难度系数: <b style="color:var(--accent2)">${cachedDifficultyScore.toFixed(1)}</b></span>`;
   }
-  const diffCfg = DIFFICULTIES[currentPreset] && DIFFICULTIES[currentPreset][currentDifficulty];
   $('statusBar').innerHTML = `
     <span>已填: <b>${filled}/${N*N}</b></span>
     <span>空格: <b>${engine.emptyCount()}</b></span>
     <span>冲突: <b style="color:${conflicts>0?'var(--conflict)':'var(--text)'}">${conflicts}</b></span>
-    <span>难度系数: <b style="color:var(--accent2)">${score.toFixed(1)}</b></span>
+    ${difficultyHtml}
     ${engine.isSolved()?'<span style="color:var(--accent);font-weight:700">已完成！</span>':''}
   `;
 }
@@ -4095,28 +4581,33 @@ function newPuzzle() {
       engine = new SudokuEngine(9, 3, 3);
       engine.loadGrid(grid);
       currentPuzzleScore = result.score; // 使用题库评分
+      currentPuzzleSource = 'db';
+      cachedDifficultyScore = null;
       resetCandOverrides(9);
       resetGlobalElimMap(9);
       selectedR = -1; selectedC = -1; history = []; hintInfo = null; reduceInfo = null; difficultyScoreDirty = true; stopAutoPlay();
+      resetGameTimer();
       renderAll(); hideLoading();
       toast(`已生成${diffCfg ? diffCfg.label : ''}题目 · 难度系数 ${result.score}`, 'success');
     }, 50);
   } else {
-    // 16×16：仍用本地挖空出题
+    // 16×16：使用结构化完整盘面 + 快速随机挖空，避免回溯生成和难度估算造成卡顿
     const diffCfg = DIFFICULTIES[currentPreset] && DIFFICULTIES[currentPreset][currentDifficulty];
-    const needsUniq = diffCfg && diffCfg.uniqCheck;
-    showLoading(needsUniq ? `正在生成${diffCfg.label}题目（保证唯一解）...` : '正在生成题目...');
+    showLoading(`正在快速生成${diffCfg ? diffCfg.label : ''} 16×16 题目...`);
     setTimeout(() => {
-      const puz = generatePuzzle(p.N, p.br, p.bc, currentDifficulty);
+      const puz = generatePuzzle16Fast(p.br, p.bc, currentDifficulty);
       engine = puz;
-      currentPuzzleScore = null; // 16×16 无题库评分，用本地估算
+      currentPuzzleScore = null;
+      currentPuzzleSource = 'generated16';
+      cachedDifficultyScore = null;
       resetCandOverrides(p.N);
       resetGlobalElimMap(p.N);
-      selectedR = -1; selectedC = -1; history = []; hintInfo = null; reduceInfo = null; difficultyScoreDirty = true; stopAutoPlay();
+      selectedR = -1; selectedC = -1; history = []; hintInfo = null; reduceInfo = null; difficultyScoreDirty = false; stopAutoPlay();
+      resetGameTimer();
       renderAll(); hideLoading();
-      const score = currentPuzzleScore != null ? currentPuzzleScore : (cachedDifficultyScore != null && !difficultyScoreDirty ? cachedDifficultyScore : estimateDifficultyScore(engine.clone()));
-      toast(`已生成${diffCfg ? diffCfg.label : ''}题目 · 难度系数 ${score.toFixed(1)}`, 'success');
-    }, 50);
+      const givens = p.N*p.N - engine.emptyCount();
+      toast(`已生成${diffCfg ? diffCfg.label : ''} 16×16 题目 · ${givens} 个给定数`, 'success');
+    }, 20);
   }
 }
 
@@ -4140,8 +4631,10 @@ function importPuzzle() {
     grid.push(row);
   }
   currentPuzzleScore = null; // 导入题目无题库评分
-  difficultyScoreDirty = true;
-  pushHistory(); engine.loadGrid(grid); resetCandOverrides(p.N); resetGlobalElimMap(p.N); hintInfo = null; reduceInfo = null; stopAutoPlay(); renderAll();
+  currentPuzzleSource = 'manual';
+  cachedDifficultyScore = null;
+  difficultyScoreDirty = false;
+  pushHistory(); engine.loadGrid(grid); resetCandOverrides(p.N); resetGlobalElimMap(p.N); hintInfo = null; reduceInfo = null; stopAutoPlay(); resetGameTimer(); renderAll();
   toast('题目已导入', 'success');
 }
 
@@ -4207,6 +4700,7 @@ function toast(msg, type) {
 }
 
 function bindEvents() {
+  $('btnTimer').onclick = startOrPauseGameTimer;
   $('btnHint').onclick = getHint;
   $('btnApply').onclick = applyHint;
   $('btnAuto').onclick = toggleAutoPlay;
@@ -4218,12 +4712,14 @@ function bindEvents() {
   $('btnImport').onclick = importPuzzle;
   $('btnExport').onclick = exportPuzzle;
   $('btnOcr').onclick = () => ocrController.open();
+  $('btnManualGrid').onclick = () => manualGridController.open();
   $('btnSolve').onclick = showFullAnswer;
   $('showCands').onchange = e => { showCandsFlag = e.target.checked; renderBoard(); };
 
   document.addEventListener('keydown', e => {
     if (!engine) return;
     if (ocrController && ocrController.modal.classList.contains('show')) return; // OCR模态框打开时不处理
+    if (manualGridController && manualGridController.modal.classList.contains('show')) return; // 手动输入模态框打开时不处理主盘快捷键
     if (e.key === 'Escape') { selectedR = -1; selectedC = -1; renderBoard(); return; }
     if (selectedR < 0) return;
     if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0') { inputSymbol(0); e.preventDefault(); return; }
