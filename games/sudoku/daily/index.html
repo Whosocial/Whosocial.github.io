@@ -583,7 +583,7 @@ body.daily-mode .timer-result{font-size:.78rem}
         <button class="mode-btn" id="modeCandidate" onclick="setInputMode('candidate')">候选</button>
       </div>
       <div class="numpad" id="numpad" style="--padcols: 5;"><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button class="erase">×</button></div>
-      <div class="daily-keyboard-tip">数字键 1–9 输入 · 方向键移动 · C/空格切换填数/候选 · Backspace/Delete/0 清除</div>
+      <div class="daily-keyboard-tip">⌨ 键盘已启用：1–9 输入 · 方向键移动 · C/空格切换填数/候选 · Backspace/Delete/0 清除</div>
     </div>
     <div class="card">
       <h3>引导解题</h3>
@@ -4833,8 +4833,8 @@ init();
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ====== 每日竞赛：只需要修改下面两行 ======
-const DAILY_SUPABASE_URL = 'https://zcmjdvmchtltzpnfdsfz.supabase.co';
-const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_CxCnZBVM-lZzflpyBA9PwA_GuXEXyL-';
+const DAILY_SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_YOUR_KEY';
 
 const dailySb = window.supabase.createClient(DAILY_SUPABASE_URL, DAILY_SUPABASE_PUBLISHABLE_KEY);
 let dailyAttemptId = null;
@@ -5039,16 +5039,85 @@ syncGameTimerWithBoard = function(){};
 if($('btnTimer')) $('btnTimer').style.display='none';
 $('dailySubmitBtn').addEventListener('click',dailySubmitResult);
 
-document.addEventListener('keydown',e=>{
-  if($('dailyNameOverlay').style.display!=='none') return;
-  if(dailySubmitted) return;
-  const tag=(e.target && e.target.tagName || '').toLowerCase();
-  if(tag==='input' || tag==='textarea' || tag==='select') return;
-  if(e.key==='c' || e.key==='C' || e.key===' '){
+// ===== 每日竞赛专用键盘控制（capture 阶段） =====
+// 不依赖棋盘是否获得焦点；只要昵称弹窗已关闭，就能直接接收键盘。
+// 使用 window + capture=true，并在已处理按键上 stopImmediatePropagation，
+// 避免普通模式原有的 document keydown 监听重复执行。
+function dailyEnsureSelection(){
+  if(engine && selectedR>=0 && selectedC>=0) return true;
+  if(!engine) return false;
+  outer:
+  for(let r=0;r<engine.N;r++){
+    for(let c=0;c<engine.N;c++){
+      if(!engine.given[r][c]){
+        selectedR=r; selectedC=c;
+        renderBoard();
+        break outer;
+      }
+    }
+  }
+  return selectedR>=0 && selectedC>=0;
+}
+
+function dailyMoveSelection(dr,dc){
+  if(!dailyEnsureSelection()) return;
+  const nr=Math.max(0,Math.min(engine.N-1,selectedR+dr));
+  const nc=Math.max(0,Math.min(engine.N-1,selectedC+dc));
+  selectedR=nr; selectedC=nc; hintInfo=null;
+  renderBoard();
+}
+
+function dailyHandleKeyboard(e){
+  const overlay=$('dailyNameOverlay');
+  if(!overlay || overlay.style.display!=='none') return;
+  if(dailySubmitted || !engine) return;
+  if(e.ctrlKey || e.metaKey || e.altKey) return;
+
+  const code=e.code||'';
+  const key=e.key||'';
+
+  // 填数 / 候选切换
+  if(code==='KeyC' || code==='Space' || key==='c' || key==='C' || key===' '){
     setInputMode(inputMode==='candidate'?'value':'candidate');
     e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
   }
-});
+
+  // 方向键移动
+  let moved=false;
+  if(code==='ArrowUp' || key==='ArrowUp'){ dailyMoveSelection(-1,0); moved=true; }
+  else if(code==='ArrowDown' || key==='ArrowDown'){ dailyMoveSelection(1,0); moved=true; }
+  else if(code==='ArrowLeft' || key==='ArrowLeft'){ dailyMoveSelection(0,-1); moved=true; }
+  else if(code==='ArrowRight' || key==='ArrowRight'){ dailyMoveSelection(0,1); moved=true; }
+  if(moved){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  // 删除
+  if(code==='Backspace' || code==='Delete' || key==='Backspace' || key==='Delete' || key==='0'){
+    if(dailyEnsureSelection()) inputSymbol(0);
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  // 主键盘 / 小键盘 1-9
+  let digit=0;
+  if(/^Digit[1-9]$/.test(code)) digit=Number(code.slice(5));
+  else if(/^Numpad[1-9]$/.test(code)) digit=Number(code.slice(6));
+  else if(/^[1-9]$/.test(key)) digit=Number(key);
+
+  if(digit>=1 && digit<=9){
+    if(dailyEnsureSelection()) inputSymbol(digit);
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }
+}
+
+window.addEventListener('keydown',dailyHandleKeyboard,true);
 
 $('dailyStartBtn').addEventListener('click',dailyStart);
 $('dailyPlayerName').addEventListener('keydown',e=>{if(e.key==='Enter') dailyStart();});
