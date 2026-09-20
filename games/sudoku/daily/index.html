@@ -549,7 +549,7 @@ body.daily-mode .timer-result{font-size:.78rem}
     <div class="daily-date" id="dailyDateLabel">正在获取今日日期…</div>
     <input id="dailyPlayerName" maxlength="20" autocomplete="nickname" placeholder="输入你的昵称" />
     <button class="daily-start-btn" id="dailyStartBtn">开始挑战</button>
-    <div class="daily-rules">规则：每天按北京时间固定一道普通难度 9×9 数独；进入作答页即开始本地计时，最终成绩以服务器时间为准；不主动提示冲突；可手动记候选数；提交错误会记录次数但可以继续作答。</div>
+    <div class="daily-rules">规则：每天按北京时间固定一道普通难度 9×9 数独；第一次正式作答计入排行榜，成绩以服务器时间为准；完成后可无限重复作答，但不会改写第一次正式成绩和错误次数；不主动提示冲突；可手动记候选数。</div>
   </div>
 </div>
 
@@ -4833,8 +4833,8 @@ init();
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ====== 每日竞赛：只需要修改下面两行 ======
-const DAILY_SUPABASE_URL = 'https://zcmjdvmchtltzpnfdsfz.supabase.co';
-const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_CxCnZBVM-lZzflpyBA9PwA_GuXEXyL-';
+const DAILY_SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_YOUR_KEY';
 
 const dailySb = window.supabase.createClient(DAILY_SUPABASE_URL, DAILY_SUPABASE_PUBLISHABLE_KEY);
 let dailyAttemptId = null;
@@ -4842,10 +4842,13 @@ let dailyStartedAt = null; // 服务器正式开始时间
 let dailyLocalStartedAt = null; // 本地可见计时起点
 let dailyLocalBaseMs = 0;      // 刷新/恢复时继承已过去的时间
 let dailyTimerInterval = null;
-let dailySubmitted = false;
+let dailySubmitted = false;          // 当前这一轮是否已经完成
+let dailyReplayMode = false;           // 是否为重复作答（不改写正式成绩）
 let dailyCurrentPlayer = '';
-let dailyServerDuration = null;
-let dailyErrorCount = 0;
+let dailyServerDuration = null;        // 当前计时卡是否显示服务器正式成绩
+let dailyOfficialDuration = null;      // 第一次正式成绩，之后永久锁定
+let dailyErrorCount = 0;               // 第一次正式作答的错误提交次数
+let dailyPuzzleCode = null;            // 今日固定题，用于一键再次作答
 
 
 async function dailyInvoke(functionName, body){
@@ -4876,6 +4879,7 @@ function dailyGridString(){
   return engine.grid.flat().map(v => String(v)).join('');
 }
 function dailyLoadPuzzle(code){
+  dailyPuzzleCode=code;
   currentPreset='9'; currentPuzzleSource='daily'; currentPuzzleScore=null;
   cachedDifficultyScore=null; difficultyScoreDirty=false; currentDifficulty='hard';
   const grid=[];
@@ -4902,27 +4906,70 @@ function dailyUpdateTimer(){
 }
 function dailyBeginLocalTimer(status){
   dailyServerDuration=null;
-  if(status==='resumed' && dailyStartedAt){
+  if(!dailyReplayMode && status==='resumed' && dailyStartedAt){
+    // 第一次正式挑战刷新/恢复时，继续显示从服务器 started_at 起算的已用时间。
     dailyLocalBaseMs=Math.max(0,Date.now()-new Date(dailyStartedAt).getTime());
   }else{
-    // 新挑战：从真正进入作答页面这一刻开始显示本地计时。
+    // 新正式挑战或重复作答，都从进入当前这一轮开始显示本地计时。
     dailyLocalBaseMs=0;
   }
   dailyLocalStartedAt=performance.now();
   if(dailyTimerInterval) clearInterval(dailyTimerInterval);
   dailyTimerInterval=setInterval(dailyUpdateTimer,250);
   dailyUpdateTimer();
-  $('timerResult').textContent='作答中 · 最终成绩以服务器时间为准';
+  $('timerResult').textContent=dailyReplayMode
+    ? `重复作答中 · 正式成绩 ${dailyOfficialDuration!=null?dailyFormatMs(dailyOfficialDuration):'已锁定'}，本轮不影响排名`
+    : '正式挑战中 · 最终成绩以服务器时间为准';
   $('timerResult').classList.remove('finished');
 }
-function dailyStopTimer(durationMs){
+function dailyStopOfficialTimer(durationMs){
   dailyServerDuration=durationMs;
+  dailyOfficialDuration=durationMs;
   dailyLocalStartedAt=null;
   if(dailyTimerInterval){clearInterval(dailyTimerInterval);dailyTimerInterval=null;}
   $('timerDisplay').textContent=dailyFormatMs(durationMs||0);
   $('timerState').textContent='已完成';
-  $('timerResult').textContent='服务器正式成绩 · 已锁定';
+  $('timerResult').textContent='第一次正式成绩 · 已锁定';
   $('timerResult').classList.add('finished');
+}
+function dailyStopReplayTimer(){
+  const replayMs=dailyCurrentLocalElapsed();
+  dailyServerDuration=replayMs;
+  dailyLocalStartedAt=null;
+  if(dailyTimerInterval){clearInterval(dailyTimerInterval);dailyTimerInterval=null;}
+  $('timerDisplay').textContent=dailyFormatMs(replayMs||0);
+  $('timerState').textContent='本轮完成';
+  $('timerResult').textContent=`本轮用时 ${dailyFormatMs(replayMs||0)} · 正式成绩仍为 ${dailyOfficialDuration!=null?dailyFormatMs(dailyOfficialDuration):'已锁定'}`;
+  $('timerResult').classList.add('finished');
+  return replayMs;
+}
+function dailySetControlsEnabled(enabled){
+  const undoBtn=$('btnUndo'), checkBtn=$('btnCheck');
+  if(undoBtn) undoBtn.disabled=!enabled;
+  if(checkBtn) checkBtn.disabled=!enabled;
+}
+function dailyUnlockBoard(){
+  // renderBoard 会重建格子；这里再保险清掉可能遗留的 inline pointer-events。
+  document.querySelectorAll('#board .cell').forEach(el=>el.style.pointerEvents='');
+  dailySetControlsEnabled(true);
+}
+function dailyStartReplaySession(){
+  if(!dailyPuzzleCode) return;
+  dailyReplayMode=true;
+  dailySubmitted=false;
+  dailyLoadPuzzle(dailyPuzzleCode);
+  dailyUnlockBoard();
+  $('dailySubmitBtn').disabled=false;
+  $('dailySubmitBtn').textContent='✓ 提交本轮';
+  const banner=$('dailyResultBanner');
+  banner.classList.add('show');
+  banner.innerHTML=`重复作答模式<br><strong>正式成绩 ${dailyOfficialDuration!=null?dailyFormatMs(dailyOfficialDuration):'已锁定'}</strong><br>本轮结果不会改写排行榜`;
+  dailyBeginLocalTimer('started');
+  const b=$('board');
+  if(b){
+    b.tabIndex=0;
+    requestAnimationFrame(()=>{ try{ b.focus({preventScroll:true}); }catch(_){ b.focus(); } });
+  }
 }
 async function dailyLoadLeaderboard(){
   try{
@@ -4970,13 +5017,21 @@ async function dailyStart(){
       requestAnimationFrame(()=>{ try{ dailyBoard.focus({preventScroll:true}); }catch(_){ dailyBoard.focus(); } });
     }
     if(data.completed){
-      dailySubmitted=true; dailyStopTimer(data.duration_ms||0);
-      const banner=$('dailyResultBanner'); banner.classList.add('show');
-      banner.innerHTML=`你今天已经完成过正式挑战。<br><strong>${dailyFormatMs(data.duration_ms||0)}</strong><br>错误提交：${dailyErrorCount} 次`;
-      document.querySelectorAll('#board .cell').forEach(el=>el.style.pointerEvents='none');
-      $('dailySubmitBtn').disabled=true; $('dailySubmitBtn').textContent='✓ 已提交';
-    }else{
+      // 已有第一次正式成绩：允许重新从空题开始作答，但官方成绩保持第一次完成结果。
+      dailyOfficialDuration=Number(data.duration_ms||0);
+      dailyReplayMode=true;
       dailySubmitted=false;
+      dailySetControlsEnabled(true);
+      $('dailySubmitBtn').disabled=false; $('dailySubmitBtn').textContent='✓ 提交本轮';
+      const banner=$('dailyResultBanner'); banner.classList.add('show');
+      banner.innerHTML=`你今天的第一次正式成绩已锁定。<br><strong>${dailyFormatMs(dailyOfficialDuration)}</strong><br>错误提交：${dailyErrorCount} 次<br><span style="font-size:.75rem;color:var(--text-dim)">现在进入重复作答，本轮不会更新排行榜。</span>`;
+      dailyBeginLocalTimer('started');
+      dailyUnlockBoard();
+    }else{
+      dailyReplayMode=false;
+      dailySubmitted=false;
+      dailyOfficialDuration=null;
+      dailySetControlsEnabled(true);
       $('dailySubmitBtn').disabled=false; $('dailySubmitBtn').textContent='✓ 提交结果';
       dailyBeginLocalTimer(data.status||'started');
     }
@@ -4987,7 +5042,12 @@ async function dailyStart(){
   }
 }
 async function dailySubmitResult(){
-  if(!engine || !dailyAttemptId || dailySubmitted) return;
+  // 当前一轮已经结束时，提交按钮直接变成“再作答一次”。
+  if(dailySubmitted){
+    dailyStartReplaySession();
+    return;
+  }
+  if(!engine || !dailyAttemptId) return;
   if(engine.emptyCount()>0){
     toast(`还有 ${engine.emptyCount()} 个空格，填满后再提交（本次不计错误）`,'info');
     return;
@@ -4998,32 +5058,63 @@ async function dailySubmitResult(){
   try{
     const data=await dailyInvoke('daily-finish',{attempt_id:dailyAttemptId,grid:dailyGridString()});
     if(!data.ok){
-      dailyErrorCount=Number(data.error_count||dailyErrorCount+1);
-      $('dailyErrorCount').textContent=`${dailyErrorCount} 次`;
+      if(!dailyReplayMode){
+        dailyErrorCount=Number(data.error_count||dailyErrorCount+1);
+        $('dailyErrorCount').textContent=`${dailyErrorCount} 次`;
+        toast(`答案不正确，已记录第 ${dailyErrorCount} 次错误提交`,'error');
+      }else{
+        // 重复作答不再修改第一次正式作答的错误次数。
+        toast('答案不正确，可继续修改；重复作答不影响正式错误次数','error');
+      }
       $('timerState').textContent='本地计时中';
-      $('timerResult').textContent='答案未通过服务器验证，可继续修改后再次提交';
-      toast(`答案不正确，已记录第 ${dailyErrorCount} 次错误提交`,'error');
+      $('timerResult').textContent=dailyReplayMode
+        ? `答案未通过验证，可继续修改 · 正式成绩 ${dailyOfficialDuration!=null?dailyFormatMs(dailyOfficialDuration):'已锁定'}`
+        : '答案未通过服务器验证，可继续修改后再次提交';
       manualConflictReveal=false;
       renderBoard(); renderStatus();
       return;
     }
+
+    if(dailyReplayMode || data.status==='replay_complete' || data.official_locked){
+      // 重复作答完成：只结束本轮本地计时，绝不覆盖第一次正式成绩。
+      dailySubmitted=true;
+      dailyOfficialDuration=Number(data.duration_ms ?? dailyOfficialDuration ?? 0);
+      dailyErrorCount=Number(data.error_count ?? dailyErrorCount);
+      $('dailyErrorCount').textContent=`${dailyErrorCount} 次`;
+      const replayMs=dailyStopReplayTimer();
+      const banner=$('dailyResultBanner'); banner.classList.add('show');
+      banner.innerHTML=`🎉 本轮作答完成！<br><strong>本轮 ${dailyFormatMs(replayMs)}</strong><br>第一次正式成绩：${dailyFormatMs(dailyOfficialDuration)}<br>排行榜不会改变`;
+      toast('本轮完成；第一次正式成绩保持不变','success');
+      document.querySelectorAll('#board .cell').forEach(el=>el.style.pointerEvents='none');
+      dailySetControlsEnabled(false);
+      btn.disabled=false; btn.textContent='↻ 再作答一次';
+      await dailyLoadLeaderboard();
+      return;
+    }
+
+    // 第一次正式挑战完成。
     dailySubmitted=true;
+    dailyReplayMode=false;
     dailyErrorCount=Number(data.error_count||dailyErrorCount);
     $('dailyErrorCount').textContent=`${dailyErrorCount} 次`;
-    dailyStopTimer(data.duration_ms);
+    dailyStopOfficialTimer(data.duration_ms);
     const banner=$('dailyResultBanner'); banner.classList.add('show');
-    banner.innerHTML=`🎉 挑战完成！<br><strong>${dailyFormatMs(data.duration_ms)}</strong><br>今日排名：${data.rank} / ${data.total_players}<br>错误提交：${dailyErrorCount} 次`;
+    banner.innerHTML=`🎉 正式挑战完成！<br><strong>${dailyFormatMs(data.duration_ms)}</strong><br>今日排名：${data.rank} / ${data.total_players}<br>错误提交：${dailyErrorCount} 次`;
     toast(`挑战完成！今日排名 #${data.rank}`,'success');
     document.querySelectorAll('#board .cell').forEach(el=>el.style.pointerEvents='none');
+    dailySetControlsEnabled(false);
+    btn.disabled=false; btn.textContent='↻ 再作答一次';
     await dailyLoadLeaderboard();
   }catch(e){
     console.error(e);
     $('timerState').textContent='本地计时中';
     $('timerResult').textContent='提交请求失败，计时仍在继续';
-    toast('成绩提交失败，请检查网络后再次点击“提交结果”','error');
+    toast('成绩提交失败，请检查网络后再次点击提交','error');
   }finally{
-    if(!dailySubmitted){btn.disabled=false; btn.textContent='✓ 提交结果';}
-    else {btn.disabled=true; btn.textContent='✓ 已提交';}
+    if(!dailySubmitted){
+      btn.disabled=false;
+      btn.textContent=dailyReplayMode?'✓ 提交本轮':'✓ 提交结果';
+    }
   }
 }
 
@@ -5038,6 +5129,22 @@ if($('diffBar')) $('diffBar').style.display='none';
 syncGameTimerWithBoard = function(){};
 if($('btnTimer')) $('btnTimer').style.display='none';
 $('dailySubmitBtn').addEventListener('click',dailySubmitResult);
+
+// 每日竞赛专用操作按钮：显式绑定，避免普通模式初始化/重复作答状态导致按钮失效。
+if($('btnUndo')){
+  $('btnUndo').onclick=()=>{
+    if(dailySubmitted){ toast('本轮已结束，点击“再作答一次”开始新一轮','info'); return; }
+    undo();
+    const b=$('board'); if(b){ try{b.focus({preventScroll:true});}catch(_){b.focus();} }
+  };
+}
+if($('btnCheck')){
+  $('btnCheck').onclick=()=>{
+    if(dailySubmitted){ toast('本轮已结束，点击“再作答一次”开始新一轮','info'); return; }
+    checkConflicts();
+    const b=$('board'); if(b){ try{b.focus({preventScroll:true});}catch(_){b.focus();} }
+  };
+}
 
 // ===== 每日竞赛专用键盘控制（capture 阶段） =====
 // 不依赖棋盘是否获得焦点；只要昵称弹窗已关闭，就能直接接收键盘。
