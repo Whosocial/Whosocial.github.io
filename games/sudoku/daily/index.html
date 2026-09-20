@@ -4822,8 +4822,8 @@ init();
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ====== 每日竞赛：只需要修改下面两行 ======
-const DAILY_SUPABASE_URL = 'https://zcmjdvmchtltzpnfdsfz.supabase.co';
-const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_CxCnZBVM-lZzflpyBA9PwA_GuXEXyL-';
+const DAILY_SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_YOUR_KEY';
 
 const dailySb = window.supabase.createClient(DAILY_SUPABASE_URL, DAILY_SUPABASE_PUBLISHABLE_KEY);
 let dailyAttemptId = null;
@@ -4832,6 +4832,25 @@ let dailyTimerInterval = null;
 let dailySubmitted = false;
 let dailyCurrentPlayer = '';
 let dailyServerDuration = null;
+
+
+async function dailyInvoke(functionName, body){
+  const {data,error}=await dailySb.functions.invoke(functionName,{body:body||{}});
+  if(error){
+    let detail = error.message || String(error);
+    const ctx = error.context;
+    if(ctx && typeof ctx.clone === 'function'){
+      try{
+        const response = ctx.clone();
+        const raw = await response.text();
+        detail += ` | HTTP ${response.status}${raw ? ` | ${raw}` : ''}`;
+      }catch(_){}
+    }
+    throw new Error(detail);
+  }
+  if(data && data.error) throw new Error(data.error);
+  return data;
+}
 
 function dailyFormatMs(ms){ return formatGameTime(ms); }
 function dailyPlayerId(){
@@ -4870,8 +4889,7 @@ function dailyStopTimer(durationMs){
 }
 async function dailyLoadLeaderboard(){
   try{
-    const {data,error}=await dailySb.functions.invoke('daily-leaderboard',{body:{}});
-    if(error) throw error;
+    const data=await dailyInvoke('daily-leaderboard',{});
     $('dailyDateLabel').textContent=`${data.challenge_date} · 北京时间`;
     $('dailyLeaderCount').textContent=`${data.total_players} 人完成`;
     const box=$('dailyLeaderboard'); box.innerHTML='';
@@ -4896,9 +4914,7 @@ async function dailyStart(){
   }
   btn.disabled=true; btn.textContent='正在进入今日挑战…';
   try{
-    const {data,error}=await dailySb.functions.invoke('daily-start',{body:{player_name:name,player_id:dailyPlayerId()}});
-    if(error) throw error;
-    if(data.error) throw new Error(data.error);
+    const data=await dailyInvoke('daily-start',{player_name:name,player_id:dailyPlayerId()});
     dailyCurrentPlayer=data.player_name||name; dailyAttemptId=data.attempt_id; dailyStartedAt=data.started_at;
     $('dailyPlayerLabel').textContent=dailyCurrentPlayer;
     localStorage.setItem('whosocial_sudoku_player_name',dailyCurrentPlayer);
@@ -4916,7 +4932,7 @@ async function dailyStart(){
     }
     await dailyLoadLeaderboard();
   }catch(e){
-    console.error(e); alert('进入每日挑战失败，请检查 Supabase 配置和 Edge Function 日志。');
+    console.error(e); alert('进入每日挑战失败：\n\n'+(e?.message||String(e))+'\n\n请把这段错误文字发给我，我可以继续定位。');
     btn.disabled=false; btn.textContent='开始挑战';
   }
 }
@@ -4925,8 +4941,7 @@ async function dailySubmitIfSolved(){
   dailySubmitted=true;
   $('timerState').textContent='正在提交…';
   try{
-    const {data,error}=await dailySb.functions.invoke('daily-finish',{body:{attempt_id:dailyAttemptId,grid:dailyGridString()}});
-    if(error) throw error;
+    const data=await dailyInvoke('daily-finish',{attempt_id:dailyAttemptId,grid:dailyGridString()});
     if(!data.ok) throw new Error(data.error||'submit_failed');
     dailyStopTimer(data.duration_ms);
     const banner=$('dailyResultBanner'); banner.classList.add('show');
