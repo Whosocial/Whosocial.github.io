@@ -530,6 +530,22 @@ body.daily-mode #board{outline:none}
 .daily-rank-errors{font-size:.62rem;color:var(--text-faint);font-weight:500;margin-top:2px}
 body.daily-mode .timer-btn{display:none!important}
 body.daily-mode .timer-result{font-size:.78rem}
+
+/* ===== v5.2 推理存档点 ===== */
+.daily-save-card{padding:8px}
+.daily-save-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+.daily-save-head h3{margin:0}
+.daily-save-tip{font-size:.64rem;color:var(--text-faint);white-space:nowrap}
+.daily-save-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.daily-save-btn{width:100%;min-width:0;padding:8px 4px!important;justify-content:center!important;text-align:center!important;line-height:1.2}
+.daily-save-btn.saved{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.daily-save-btn:disabled{opacity:.45;cursor:not-allowed}
+.daily-save-state{display:block;font-size:.6rem;font-weight:500;margin-top:2px;opacity:.8}
+@media(max-width:760px){
+  .daily-save-head{align-items:flex-start;flex-direction:column;gap:2px}
+  .daily-save-tip{white-space:normal}
+  .daily-save-btn{padding:9px 3px!important}
+}
 @media(max-width:760px){
   .daily-name-box{padding:20px 16px}
   .daily-back-btn{padding:4px 8px;font-size:.7rem}
@@ -676,6 +692,24 @@ body.daily-mode .timer-result{font-size:.78rem}
       <div class="daily-error-row"><span>错误提交</span><b id="dailyErrorCount">0 次</b></div>
       <div class="timer-result" id="timerResult"></div>
       <div class="daily-result-banner" id="dailyResultBanner"></div>
+    </div>
+
+    <div class="card daily-save-card">
+      <div class="daily-save-head">
+        <h3>推理存档</h3>
+        <span class="daily-save-tip">点击一次保存，再点击同一按钮恢复</span>
+      </div>
+      <div class="daily-save-grid">
+        <button class="act-btn daily-save-btn" id="dailySavePoint1" type="button">
+          <span>存档点1</span><span class="daily-save-state">未保存</span>
+        </button>
+        <button class="act-btn daily-save-btn" id="dailySavePoint2" type="button">
+          <span>存档点2</span><span class="daily-save-state">未保存</span>
+        </button>
+        <button class="act-btn daily-save-btn" id="dailySavePoint3" type="button">
+          <span>存档点3</span><span class="daily-save-state">未保存</span>
+        </button>
+      </div>
     </div>
     <div class="card daily-input-card">
       <div class="mode-bar daily-mode-bar">
@@ -2403,6 +2437,10 @@ let difficultyScoreDirty = true; // 脏标记：true 表示需要重新计算
 let inputMode='value'; // 'value' = 填数模式, 'candidate' = 候选数模式
 // 用户自定义候选数：candOverrides[r][c] = Set of values (手动标记的候选数)
 let candOverrides=null;
+
+// v5.2：三个独立的推理存档点。存档只存在当前页面会话，不写入服务器。
+// 每个存档点第一次点击保存，之后再次点击恢复；恢复后该存档仍然保留，可继续重复恢复。
+let dailySavePoints=[null,null,null];
 const $ = id => document.getElementById(id);
 
 
@@ -4933,8 +4971,8 @@ init();
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ====== 每日竞赛 v5：只需要修改下面两行 ======
-const DAILY_SUPABASE_URL = 'https://zcmjdvmchtltzpnfdsfz.supabase.co';
-const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_CxCnZBVM-lZzflpyBA9PwA_GuXEXyL-';
+const DAILY_SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+const DAILY_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_YOUR_KEY';
 
 const dailySb = window.supabase.createClient(DAILY_SUPABASE_URL, DAILY_SUPABASE_PUBLISHABLE_KEY);
 
@@ -5053,8 +5091,86 @@ function dailyClearDraft(attemptId=dailyAttemptId){
   if(key) localStorage.removeItem(key);
 }
 
+// ===== v5.2 推理存档点 =====
+function dailyCloneSetMatrix(matrix){
+  if(!matrix) return null;
+  return matrix.map(row=>row.map(set=>new Set(set)));
+}
+
+function dailyResetSavePoints(){
+  dailySavePoints=[null,null,null];
+  dailyRenderSavePoints();
+}
+
+function dailyRenderSavePoints(){
+  for(let i=0;i<3;i++){
+    const btn=$(`dailySavePoint${i+1}`);
+    if(!btn) continue;
+    const state=btn.querySelector('.daily-save-state');
+    const has=!!dailySavePoints[i];
+    btn.classList.toggle('saved',has);
+    if(state) state.textContent=has?'已保存 · 再点恢复':'未保存';
+    btn.disabled=!!dailySubmitted;
+  }
+}
+
+function dailySaveOrRestorePoint(index){
+  if(index<0 || index>2 || !engine || dailySubmitted) return;
+
+  // 第一次点击：保存当前完整解题状态。
+  if(!dailySavePoints[index]){
+    dailySavePoints[index]={
+      grid:engine.grid.map(row=>[...row]),
+      given:engine.given.map(row=>[...row]),
+      candOverrides:dailyCloneSetMatrix(candOverrides),
+      globalElimMap:dailyCloneSetMatrix(globalElimMap),
+      selectedR,
+      selectedC,
+      inputMode,
+      manualConflictReveal,
+      hintInfo:hintInfo ? JSON.parse(JSON.stringify(hintInfo)) : null,
+      reduceInfo:reduceInfo ? JSON.parse(JSON.stringify(reduceInfo)) : null
+    };
+    dailyRenderSavePoints();
+    toast(`已保存到存档点${index+1}，继续推理吧`,'success');
+    return;
+  }
+
+  // 再次点击：恢复到保存瞬间；计时、错误提交次数、服务器成绩状态完全不回退。
+  const snap=dailySavePoints[index];
+  engine.grid=snap.grid.map(row=>[...row]);
+  engine.given=snap.given.map(row=>[...row]);
+  candOverrides=dailyCloneSetMatrix(snap.candOverrides) || Array.from({length:9},()=>Array.from({length:9},()=>new Set()));
+  globalElimMap=dailyCloneSetMatrix(snap.globalElimMap) || Array.from({length:9},()=>Array.from({length:9},()=>new Set()));
+  selectedR=snap.selectedR;
+  selectedC=snap.selectedC;
+  inputMode=snap.inputMode || 'value';
+  manualConflictReveal=!!snap.manualConflictReveal;
+  hintInfo=snap.hintInfo ? JSON.parse(JSON.stringify(snap.hintInfo)) : null;
+  reduceInfo=snap.reduceInfo ? JSON.parse(JSON.stringify(snap.reduceInfo)) : null;
+
+  // 恢复后清空普通撤销历史，避免“撤销”跳回恢复点之前的分支。
+  history=[];
+  stopAutoPlay();
+  setInputMode(inputMode);
+  renderAll();
+  dailySaveDraft();
+  dailyFocusBoard();
+  dailyRenderSavePoints();
+  toast(`已恢复存档点${index+1}，计时与错误次数不变`,'info');
+}
+
+function bindDailySavePoints(){
+  for(let i=0;i<3;i++){
+    const btn=$(`dailySavePoint${i+1}`);
+    if(btn) btn.onclick=()=>dailySaveOrRestorePoint(i);
+  }
+  dailyRenderSavePoints();
+}
+
 function dailyLoadPuzzle(code){
   dailyPuzzleCode=code;
+  dailyResetSavePoints();
   currentPreset='9';
   currentPuzzleSource='daily';
   currentPuzzleScore=null;
@@ -5151,6 +5267,7 @@ function dailySetControlsEnabled(enabled){
   const checkBtn=$('btnCheck');
   if(undoBtn) undoBtn.disabled=!enabled;
   if(checkBtn) checkBtn.disabled=!enabled;
+  dailyRenderSavePoints();
 }
 
 function dailyUnlockBoard(){
@@ -5497,6 +5614,7 @@ if($('diffBar')) $('diffBar').style.display='none';
 syncGameTimerWithBoard=function(){};
 if($('btnTimer')) $('btnTimer').style.display='none';
 
+bindDailySavePoints();
 $('dailySubmitBtn').addEventListener('click',dailySubmitResult);
 $('dailyOpenLobbyBtn').addEventListener('click',dailyOpenLobby);
 
